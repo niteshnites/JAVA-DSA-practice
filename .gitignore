@@ -10,3 +10,5 @@ node_modules/
 # Ignore temporary files from IDEs like VS Code or JetBrains
 .vscode/
 .idea/
+
+target/
