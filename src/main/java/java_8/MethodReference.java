@@ -1,5 +1,11 @@
 package java_8;
 
+/*
+Method references are a shorthand for lambda expressions where you directly
+refer to a method using the class or object.
+like: ClassName::methodName or System.out::println
+ */
+
 import java.util.function.Consumer;
 
 public class MethodReference {
