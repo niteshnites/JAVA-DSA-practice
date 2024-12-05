@@ -4,7 +4,7 @@ public class FibonacciSeries {
     public static void main(String[] args) {
 
         // Program to print Fibonacci Series till provided number
-        // series: 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55 ...
+        // series: 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55 ..
 
         int number = 10;
 
