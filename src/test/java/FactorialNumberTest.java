@@ -1,4 +1,4 @@
-public class FactorialNumber {
+public class FactorialNumberTest {
     public static void main(String[] args) {
 
         // factorial of a number
