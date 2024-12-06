@@ -1,4 +1,4 @@
-package programs_top_10;
+package programs_basic;
 
 public class PrintPattern {
     public static void main(String[] args) {
