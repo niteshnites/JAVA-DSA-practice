@@ -19,7 +19,10 @@ public class ReverseString {
         System.out.println(reverseString);
 
         // Reverse each word
-        String string2 = "My name is Nitesh";
+        String string2 = "     My name is Nitesh     ";
+        System.out.println(string2);
+        string2 = string2.trim();
+        System.out.println(string2);
         String [] words = string2.split(" ");
 
         StringBuilder reverseString2 = new StringBuilder();

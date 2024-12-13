@@ -7,7 +7,7 @@ public class PalindromeCheck {
         // input Naman, NITIN, madam, non -> output true
         // input nick, nitish, man -> output false
 
-        String name = "Non";
+        String name = "madam";
         boolean result = false;
         name = name.toLowerCase();
         for (int i = 0; i < name.length()/2; i++){
