@@ -3,6 +3,14 @@ package interview_prep;
 import java.util.ArrayList;
 import java.util.List;
 
+/*
+The Observer Design Pattern is a behavioral design pattern where an object (the subject)
+maintains a list of dependents (observers) and notifies them of any state changes,
+typically by calling one of their methods. This pattern is useful when you need a
+one-to-many relationship between objects, such that if one object changes state,
+all its dependents are notified and updated automatically.
+ */
+
 // Subject Interface
 interface Subject {
     void addObserver(Observer observer);
