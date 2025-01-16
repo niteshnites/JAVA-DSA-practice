@@ -2,7 +2,7 @@ package collections;
 
 import java.util.ArrayList;
 
-// Collection practice class to practice collections concepts
+// Collection practice class to practice collections concepts updated
 public class CollectionsPractice {
     public static void main(String[] args) {
         ArrayList <Integer> arrayList = new ArrayList<>();
