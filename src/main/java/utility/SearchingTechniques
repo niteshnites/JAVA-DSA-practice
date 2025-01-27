@@ -1,0 +1,58 @@
+Time Complexity and Space Complexity for Searching Techniques
+
+1. Linear Search
+
+Best Case: O(1)
+ (if the target is the first element).
+Worst Case: O(n)
+ (if the target is the last element or not present).
+Average Case:O(n)
+Space Complexity: O(1)
+ (in-place, no extra space used).
+
+2. Binary Search
+Best Case: O(1)
+ (if the middle element is the target).
+Worst Case: O(log n)
+ (as the array size is halved at each step).
+Average Case: O(log n)
+Space Complexity:
+Iterative: O(1)
+Recursive (not implemented here):  O(log n)(due to the recursive stack).
+
+3. Jump Search
+Best Case: O(1)
+ (if the target is at the beginning of the block).
+Worst Case: O(_/n)
+ (if the target is at the end or not found).
+Average Case: O(_/n)
+Space Complexity: O(1)
+ (in-place, no extra space used).
+
+4. Interpolation Search
+Best Case: O(1)
+ (if the target is found at the calculated position in the first attempt).
+Worst Case: O(n)
+ (if the data distribution is not uniform).
+Average Case: O(loglogn)
+ (with uniformly distributed data).
+Space Complexity: O(1)
+ (in-place).
+
+5. Exponential Search
+Best Case: O(1)
+ (if the first index is the target).
+Worst Case: O(log n)
+ (due to the binary search after finding the range).
+Average Case: O(log n)
+Space Complexity: O(1)
+ (in-place, but uses a small binary search range).
+
+6. Fibonacci Search
+Best Case: O(1)
+ (if the target is found immediately).
+Worst Case: O(log n)
+ (similar to binary search, but slightly slower due to Fibonacci calculations).
+Average Case: O(log n)
+Space Complexity: O(1)
+ (in-place, uses Fibonacci variables).
