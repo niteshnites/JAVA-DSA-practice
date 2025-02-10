@@ -27,6 +27,23 @@ public class MethodsRecursion {
         for (int i = 0; i < n; i++) {
             System.out.print(fibonacci(i) + " ");
         }
+        System.out.println(); // New line for better formatting
+
+        // 7. Recursive sum of digits
+        int num = 1234;
+        System.out.println("Sum of digits of " + num + " is: " + sumOfDigits(num));
+
+        // 8. Recursive string reversal
+        String str = "Recursion";
+        System.out.println("Reversed string of '" + str + "' is: " + reverseString(str));
+
+        // 9. Recursive GCD calculation
+        int a = 56, b = 98;
+        System.out.println("GCD of " + a + " and " + b + " is: " + gcd(a, b));
+
+        // 10. Power calculation using recursion
+        int base = 2, exponent = 5;
+        System.out.println(base + " raised to the power " + exponent + " is: " + power(base, exponent));
     }
 
     // 1. Simple method
@@ -65,5 +82,37 @@ public class MethodsRecursion {
             return 1; // Base case
         }
         return fibonacci(n - 1) + fibonacci(n - 2); // Recursive call
+    }
+
+    // 7. Recursive sum of digits
+    public static int sumOfDigits(int num) {
+        if (num == 0) {
+            return 0; // Base case
+        }
+        return (num % 10) + sumOfDigits(num / 10); // Recursive call
+    }
+
+    // 8. Recursive string reversal
+    public static String reverseString(String str) {
+        if (str.isEmpty()) {
+            return str; // Base case
+        }
+        return reverseString(str.substring(1)) + str.charAt(0); // Recursive call
+    }
+
+    // 9. Recursive method to calculate GCD (Greatest Common Divisor)
+    public static int gcd(int a, int b) {
+        if (b == 0) {
+            return a; // Base case
+        }
+        return gcd(b, a % b); // Recursive call
+    }
+
+    // 10. Recursive power calculation (x^y)
+    public static int power(int base, int exp) {
+        if (exp == 0) {
+            return 1; // Base case
+        }
+        return base * power(base, exp - 1); // Recursive call
     }
 }
