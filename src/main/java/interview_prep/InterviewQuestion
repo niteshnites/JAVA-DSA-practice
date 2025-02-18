@@ -1,0 +1,72 @@
+Core Java Questions
+What is the difference between JDK, JRE, and JVM?
+What are the features of Java? (e.g., platform independence, object-oriented, multithreading, etc.)
+Explain the concept of OOPs in Java. What are the four main principles?
+What is the difference between == and equals() in Java?
+What are Wrapper Classes in Java?
+What is the significance of the final keyword in Java?
+What is the difference between String, StringBuilder, and StringBuffer?
+What is a Java ClassLoader?
+What are checked and unchecked exceptions? Provide examples.
+Explain the difference between abstract class and interface.
+Collections Framework
+What is the difference between List, Set, and Map in Java?
+What is the difference between HashMap and Hashtable?
+Explain the internal working of HashMap.
+What is the difference between ArrayList and LinkedList?
+What is the difference between TreeMap and HashMap?
+What is ConcurrentHashMap, and how is it different from HashMap?
+How does Java handle synchronization in collections?
+What is the difference between fail-fast and fail-safe iterators?
+What is a PriorityQueue, and how does it work?
+What is the use of Comparator and Comparable interfaces?
+Multithreading and Concurrency
+What is the difference between Thread and Runnable?
+Explain thread lifecycle in Java.
+What is the difference between synchronized block and synchronized method?
+What is a deadlock? How can it be avoided?
+What is the volatile keyword in Java?
+What are Executor and ExecutorService?
+What are Callable and Future in Java?
+What is the difference between wait() and sleep()?
+What is the role of ReentrantLock in Java?
+Explain the concept of thread safety in Java. How is it achieved?
+JVM and Performance
+Explain the JVM architecture.
+What is the difference between heap and stack memory in Java?
+What are Garbage Collection (GC) types in Java?
+How does garbage collection work in Java?
+What is a ClassLoader? How does it work?
+What are memory leaks in Java? How do you avoid them?
+What are Soft, Weak, and Phantom references in Java?
+What is Just-In-Time (JIT) compilation?
+What are common JVM tuning parameters?
+How do you optimize the performance of a Java application?
+Java 8 and Beyond
+What are the main features introduced in Java 8?
+What is a functional interface? Give examples.
+Explain the concept of Streams in Java.
+What is the difference between map() and flatMap() in Streams?
+What are Optional classes in Java?
+What are default and static methods in interfaces?
+What are method references in Java?
+What are Lambda Expressions, and how are they used?
+Explain the Collectors utility in Streams.
+What is the difference between forEach() and peek() in Streams?
+Advanced Java Topics
+What are design patterns in Java? Provide examples of Singleton, Factory, and Observer.
+Explain the concept of dependency injection (DI) in Java.
+What are microservices, and how is Java used to build them?
+What is a servlet in Java? How does it work?
+Explain the lifecycle of a servlet.
+What is the difference between SOAP and REST APIs?
+What is Hibernate, and how does it work?
+What is Spring Framework? What are its main modules?
+What is a Java Reflection API, and how is it used?
+How do you implement secure communication in Java using SSL?
+Common Scenario-Based Questions
+How would you create a thread-safe Singleton in Java?
+Explain how to handle a large file with Java efficiently.
+How would you implement a producer-consumer problem in Java?
+How do you detect and resolve memory leaks in a Java application?
+How would you handle a high-traffic web application using Java?
