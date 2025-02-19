@@ -1,5 +1,14 @@
 Core Java Questions
-What is the difference between JDK, JRE, and JVM?
+1. What is the difference between JDK, JRE, and JVM?
+    The key differences between JDK (Java Development Kit), JRE (Java Runtime Environment), and JVM (Java Virtual Machine) are:
+
+    Feature	JDK (Java Development Kit)	JRE (Java Runtime Environment)	JVM (Java Virtual Machine)
+    Definition	A full development package for creating Java applications.	A runtime environment to run Java applications.	A virtual machine that executes Java bytecode.
+    Purpose	Used for developing, compiling, and running Java applications.	Provides the necessary libraries and components to run Java programs.	Converts Java bytecode into machine code for execution.
+    Components	Includes JRE, JVM, compiler (javac), debugger, and other development tools.	Includes JVM and essential libraries but does not include development tools.	Part of JRE; responsible for interpreting and executing Java code.
+    Contains	JRE + Development tools (javac, jar, javadoc, etc.)	JVM + Java libraries and classes	Just the Java Virtual Machine (JIT compiler, garbage collector, etc.)
+    Usage	Developers use it to write and compile Java programs.	End-users use it to run Java applications.	It is used internally by JRE/JDK to execute Java programs.
+
 What are the features of Java? (e.g., platform independence, object-oriented, multithreading, etc.)
 Explain the concept of OOPs in Java. What are the four main principles?
 What is the difference between == and equals() in Java?
