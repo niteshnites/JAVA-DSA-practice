@@ -9,8 +9,25 @@ Core Java Questions
     Contains	JRE + Development tools (javac, jar, javadoc, etc.)	JVM + Java libraries and classes	Just the Java Virtual Machine (JIT compiler, garbage collector, etc.)
     Usage	Developers use it to write and compile Java programs.	End-users use it to run Java applications.	It is used internally by JRE/JDK to execute Java programs.
 
-What are the features of Java? (e.g., platform independence, object-oriented, multithreading, etc.)
-Explain the concept of OOPs in Java. What are the four main principles?
+
+2. Explain the concept of OOPs in Java. What are the four main principles?
+    Platform Independence (WORA)
+    Object-Oriented
+    Simple
+    Secure
+    Robust
+    Multithreading
+    Portable
+    High Performance (JIT)
+    Dynamic and Extensible
+    Distributed
+    Interpreted
+    Automatic Memory Management (Garbage Collection)
+    Rich API
+    Scalability and Versatility
+    Strong Community Support
+
+
 What is the difference between == and equals() in Java?
 What are Wrapper Classes in Java?
 What is the significance of the final keyword in Java?
