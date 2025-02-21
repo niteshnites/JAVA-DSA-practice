@@ -28,7 +28,8 @@ Core Java Questions
     Strong Community Support
 
 
-What is the difference between == and equals() in Java?
+3. What is the difference between == and equals() in Java?
+
 What are Wrapper Classes in Java?
 What is the significance of the final keyword in Java?
 What is the difference between String, StringBuilder, and StringBuffer?
