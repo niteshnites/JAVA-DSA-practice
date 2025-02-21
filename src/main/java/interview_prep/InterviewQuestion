@@ -29,6 +29,15 @@ Core Java Questions
 
 
 3. What is the difference between == and equals() in Java?
+    1. == Operator:
+    It is a reference comparison operator.
+    It checks whether two references point to the same memory location.
+    It does not compare the actual content of objects.
+
+    2. equals() Method:
+    It is a content comparison method.
+    The default implementation in Object class performs the same reference check as ==, but many classes (like String, Integer, etc.) override it to compare actual content.
+
 
 What are Wrapper Classes in Java?
 What is the significance of the final keyword in Java?
