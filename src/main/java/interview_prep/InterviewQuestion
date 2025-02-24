@@ -40,6 +40,24 @@ Core Java Questions
 
 
 What are Wrapper Classes in Java?
+    Wrapper classes in Java are used to convert primitive data types into objects. Each primitive type in Java has a corresponding wrapper class in the java.lang package.
+    Why Use Wrapper Classes?
+    Collections Framework – Collections like ArrayList and HashMap store only objects, not primitives.
+    Autoboxing and Unboxing – Java automatically converts primitives to wrapper objects and vice versa.
+    Utility Methods – Wrapper classes provide useful methods for data conversion, parsing, etc.
+    Synchronization – Objects are required in multi-threaded environments.
+    List of Wrapper Classes
+    Primitive Type	Wrapper Class
+    byte	Byte
+    short	Short
+    int	Integer
+    long	Long
+    float	Float
+    double	Double
+    char	Character
+    boolean	Boolean
+
+
 What is the significance of the final keyword in Java?
 What is the difference between String, StringBuilder, and StringBuffer?
 What is a Java ClassLoader?
