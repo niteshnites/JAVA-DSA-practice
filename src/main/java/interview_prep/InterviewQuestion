@@ -39,7 +39,7 @@ Core Java Questions
     The default implementation in Object class performs the same reference check as ==, but many classes (like String, Integer, etc.) override it to compare actual content.
 
 
-What are Wrapper Classes in Java?
+4. What are Wrapper Classes in Java?
     Wrapper classes in Java are used to convert primitive data types into objects. Each primitive type in Java has a corresponding wrapper class in the java.lang package.
     Why Use Wrapper Classes?
     Collections Framework – Collections like ArrayList and HashMap store only objects, not primitives.
@@ -58,7 +58,29 @@ What are Wrapper Classes in Java?
     boolean	Boolean
 
 
-What is the significance of the final keyword in Java?
+5. What is the significance of the final keyword in Java?
+    The final keyword in Java is used to impose restrictions on variables, methods, and classes. It helps in maintaining immutability, security, and preventing unintended modifications.
+
+    Usage of final in Java
+    1. final Variable (Constant Values)
+    A final variable’s value cannot be changed once initialized.
+    It must be assigned at the time of declaration or inside a constructor.
+
+    2. final Method (Prevent Overriding)
+    A final method cannot be overridden by subclasses.
+    This ensures method functionality remains unchanged.
+
+    3. final Class (Prevent Inheritance)
+    A final class cannot be extended (inherited).
+    This ensures security and immutability.
+
+    Key Points to Remember
+    final variables → Value cannot change after initialization.
+    final methods → Cannot be overridden.
+    final classes → Cannot be inherited.
+    final does not make objects immutable, only references cannot be changed.
+
+
 What is the difference between String, StringBuilder, and StringBuffer?
 What is a Java ClassLoader?
 What are checked and unchecked exceptions? Provide examples.
