@@ -81,7 +81,27 @@ Core Java Questions
     final does not make objects immutable, only references cannot be changed.
 
 
-What is the difference between String, StringBuilder, and StringBuffer?
+6. What is the difference between String, StringBuilder, and StringBuffer?
+    In Java, String, StringBuilder, and StringBuffer are used to handle and manipulate strings. However, they differ in mutability, performance, and thread safety.
+
+    1. String (Immutable)
+    Immutable: Once a String object is created, it cannot be modified.
+    Every modification (e.g., concatenation) creates a new object in memory.
+    Stored in String Pool (Heap Memory).
+    Memory Impact: Since every modification creates a new object, excessive use may lead to high memory consumption.
+
+    2. StringBuffer (Mutable & Thread-Safe)
+    Mutable: Can be modified without creating new objects.
+    Thread-Safe: Uses synchronized methods, making it safe for multi-threading.
+    Slower than StringBuilder due to synchronization overhead.
+    Use Case: Suitable for multi-threaded environments where thread safety is required.
+
+    3. StringBuilder (Mutable & Faster, Not Thread-Safe)
+    Mutable: Can be modified without creating new objects.
+    Not Thread-Safe: Does not use synchronization, making it faster than StringBuffer.
+    Use Case: Best for single-threaded applications where performance is important.
+
+
 What is a Java ClassLoader?
 What are checked and unchecked exceptions? Provide examples.
 Explain the difference between abstract class and interface.
