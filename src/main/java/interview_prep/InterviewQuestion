@@ -102,7 +102,38 @@ Core Java Questions
     Use Case: Best for single-threaded applications where performance is important.
 
 
-What is a Java ClassLoader?
+7. What is a Java ClassLoader?
+    A Java ClassLoader is a part of the Java Runtime Environment (JRE) responsible for dynamically loading classes into memory when required. It is a component of the Java Class Loading Mechanism and follows the delegation model to load classes efficiently.
+
+    Types of Java ClassLoaders
+    Java provides three primary ClassLoaders:
+
+    Bootstrap ClassLoader
+
+    Loads core Java classes from the rt.jar (or equivalent) such as java.lang, java.util, etc.
+    Implemented in native code.
+    It does not have a parent.
+    Extension (Platform) ClassLoader
+
+    Loads classes from the ext directory ($JAVA_HOME/lib/ext or specified java.ext.dirs).
+    Delegates loading to Bootstrap ClassLoader if needed.
+    Application (System) ClassLoader
+
+    Loads classes from the application's classpath (e.g., directories or JAR files specified in CLASSPATH).
+    Delegates loading to Extension ClassLoader first.
+    How Java ClassLoader Works
+    When a class is needed, the Application ClassLoader first checks whether it is already loaded.
+    If not found, it delegates the request to its parent (Extension ClassLoader).
+    If the class is still not found, the Bootstrap ClassLoader is checked.
+    If none of the parent ClassLoaders can find the class, it is loaded by the original requesting ClassLoader.
+    If the class is not found, a ClassNotFoundException or NoClassDefFoundError is thrown.
+    Custom ClassLoaders
+    Developers can create their own custom ClassLoaders by extending the ClassLoader class. This is useful in:
+
+    Dynamic class loading (e.g., plugins, frameworks like Spring, Hibernate).
+    Class reloading (e.g., hot-swapping in development tools).
+
+
 What are checked and unchecked exceptions? Provide examples.
 Explain the difference between abstract class and interface.
 Collections Framework
