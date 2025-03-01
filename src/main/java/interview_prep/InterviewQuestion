@@ -134,7 +134,35 @@ Core Java Questions
     Class reloading (e.g., hot-swapping in development tools).
 
 
-What are checked and unchecked exceptions? Provide examples.
+8. What are checked and unchecked exceptions? Provide examples.
+    In Java, exceptions are categorized into checked and unchecked exceptions based on when they are detected and handled.
+
+    1. Checked Exceptions
+    Checked exceptions are checked at compile-time, meaning the compiler forces you to handle them using a try-catch block or declare them using the throws keyword.
+    These exceptions usually occur due to external factors (like file access, database issues, etc.).
+    💡 Key Points:
+    IOException is a checked exception.
+    The compiler forces us to handle it using try-catch.
+    Common Checked Exceptions
+    IOException (File not found, file reading issues)
+    SQLException (Database connection issues)
+    InterruptedException (Thread interruption)
+    ClassNotFoundException (Class not found at runtime)
+
+    2. Unchecked Exceptions
+    Unchecked exceptions are not checked at compile-time. These occur due to programming errors (like division by zero, null pointer access, etc.).
+    The compiler does not force you to handle them.
+    💡 Key Points:
+    NullPointerException occurs because text is null.
+    The compiler does not force you to handle it.
+    It can be prevented using null checks.
+    Common Unchecked Exceptions
+    NullPointerException (Accessing a method on null)
+    ArrayIndexOutOfBoundsException (Accessing an array element out of range)
+    ArithmeticException (Division by zero)
+    IllegalArgumentException (Invalid method argument)
+    NumberFormatException (Parsing non-numeric string as a number)
+
 Explain the difference between abstract class and interface.
 Collections Framework
 What is the difference between List, Set, and Map in Java?
