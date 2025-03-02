@@ -163,7 +163,26 @@ Core Java Questions
     IllegalArgumentException (Invalid method argument)
     NumberFormatException (Parsing non-numeric string as a number)
 
-Explain the difference between abstract class and interface.
+9. Explain the difference between abstract class and interface.
+    Both abstract classes and interfaces are used to achieve abstraction in Java, but they have key differences in terms of usage, implementation, and behavior.
+
+    1. Abstract Class
+    An abstract class is a class that cannot be instantiated and may contain both abstract (unimplemented) and concrete (implemented) methods.
+    💡 Key Points:
+    Can have both abstract and concrete methods.
+    Can have constructors and instance variables.
+    Supports single inheritance (a class can extend only one abstract class).
+
+    2. Interface
+    An interface is a blueprint that defines only abstract methods (before Java 8). From Java 8 onwards, it can also have default and static methods with implementation.
+    💡 Key Points:
+    All methods are public and abstract by default.
+    Cannot have constructors or instance variables.
+    Supports multiple inheritance (a class can implement multiple interfaces).
+    Can have default and static methods (Java 8+).
+
+
+
 Collections Framework
 What is the difference between List, Set, and Map in Java?
 What is the difference between HashMap and Hashtable?
