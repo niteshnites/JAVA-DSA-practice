@@ -182,9 +182,63 @@ Core Java Questions
     Can have default and static methods (Java 8+).
 
 
+10. Collections Framework
+    The Collections Framework in Java is a unified architecture for handling and manipulating groups of objects. It provides a set of interfaces and classes to store, retrieve, and process data efficiently.
 
-Collections Framework
-What is the difference between List, Set, and Map in Java?
+    1. Key Components of the Collections Framework
+    The framework includes:
+
+    Interfaces – Define the abstract data structures (e.g., List, Set, Map, Queue).
+    Classes – Implementations of these interfaces (e.g., ArrayList, HashSet, HashMap).
+    Algorithms – Utility methods for searching, sorting, and manipulating collections (e.g., Collections.sort()).
+
+    2. Core Interfaces and Their Implementations
+    A. List (Ordered Collection, Allows Duplicates)
+    Implements a dynamic array-like structure.
+    Maintains insertion order.
+    Allows random access using an index.
+    Implementations:
+
+    ArrayList (Fast random access, slower inserts/deletes)
+    LinkedList (Faster inserts/deletes, slower random access)
+    Vector (Thread-safe, synchronized)
+    B. Set (Unique Elements, No Duplicates)
+    Unordered collection of unique elements.
+    No index-based access.
+    Implementations:
+
+    HashSet (Uses hashing, fast access but unordered)
+    LinkedHashSet (Maintains insertion order)
+    TreeSet (Sorted order using Red-Black Tree)
+    C. Map (Key-Value Pair Collection, No Duplicate Keys)
+    Stores data in key-value pairs.
+    Keys must be unique, values can be duplicate.
+    Implementations:
+
+    HashMap (Unordered, fast access)
+    LinkedHashMap (Maintains insertion order)
+    TreeMap (Sorted order by key)
+    Hashtable (Thread-safe, synchronized)
+    D. Queue (FIFO-Based, Order-Based Processing)
+    Used for storing elements in a queue structure.
+    Implementations:
+
+    PriorityQueue (Elements ordered based on priority)
+    ArrayDeque (Efficient for stack and queue operations)
+
+    3. Utility Classes in Collections Framework
+    Java provides utility classes to operate on collections:
+
+    Collections – Sorting, searching, shuffling (Collections.sort())
+    Arrays – Converting arrays to lists (Arrays.asList())
+    4. Benefits of Using the Collections Framework
+    ✔ Reduces programming effort
+    ✔ Improves code quality and reusability
+    ✔ Provides built-in algorithms and data structures
+    ✔ Offers thread-safe and concurrent collections (ConcurrentHashMap, CopyOnWriteArrayList)
+
+
+11. What is the difference between List, Set, and Map in Java?
 What is the difference between HashMap and Hashtable?
 Explain the internal working of HashMap.
 What is the difference between ArrayList and LinkedList?
