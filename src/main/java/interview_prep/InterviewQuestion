@@ -239,6 +239,48 @@ Core Java Questions
 
 
 11. What is the difference between List, Set, and Map in Java?
+    Difference Between List, Set, and Map in Java
+    Java provides List, Set, and Map interfaces in the Java Collections Framework (JCF) to store and manipulate collections of objects. Each of these has different characteristics.
+    Definition:
+
+    List: A collection that allows duplicate elements and maintains insertion order.
+    Set: A collection that does not allow duplicates and does not guarantee order (except for some implementations).
+    Map: A key-value pair collection where keys must be unique, but values can be duplicated.
+    Duplicates Allowed?
+
+    List: ✅ Yes, duplicates are allowed.
+    Set: ❌ No, duplicates are not allowed.
+    Map: ❌ No, keys must be unique, but values can be duplicated.
+    Ordering of Elements
+
+    List: Maintains the insertion order of elements.
+    Set: Does not guarantee order (except LinkedHashSet maintains insertion order and TreeSet maintains sorted order).
+    Map: Does not guarantee order (except LinkedHashMap maintains insertion order and TreeMap sorts by keys).
+    Accessing Elements
+
+    List: Supports index-based access (list.get(index)).
+    Set: Does not support index-based access.
+    Map: Access elements using keys (map.get(key)).
+    Null Values
+
+    List: ✅ Allows multiple null values.
+    Set: ✅ Allows only one null value.
+    Map: ✅ Allows one null key and multiple null values.
+    Performance Considerations
+
+    List: Faster for indexed access and iteration.
+    Set: Faster for checking uniqueness but slower than List for indexed access.
+    Map: Faster lookups using keys but may consume more memory due to key-value storage.
+    Common Implementations
+
+    List: ArrayList, LinkedList, Vector.
+    Set: HashSet, LinkedHashSet, TreeSet.
+    Map: HashMap, LinkedHashMap, TreeMap.
+    Conclusion
+    Use List when order is important and duplicates are needed.
+    Use Set when you need only unique elements.
+    Use Map when you need to store key-value pairs for quick lookups.
+
 What is the difference between HashMap and Hashtable?
 Explain the internal working of HashMap.
 What is the difference between ArrayList and LinkedList?
