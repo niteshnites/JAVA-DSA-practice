@@ -310,6 +310,50 @@ What is the difference between HashMap and Hashtable?
 
 
 Explain the internal working of HashMap.
+    A HashMap (also known as a hash table) is a data structure that allows for efficient storage and retrieval of key-value pairs. The internal working of a HashMap involves several key concepts: hashing, buckets, and collision handling. Here’s a breakdown of how it works:
+
+    1. Hashing
+    Hash Function: The primary mechanism that drives a HashMap is the hash function. When a key is added to the map, it is passed through a hash function, which computes an integer value (called the hash code) based on the key.
+    This hash code helps in determining where the key-value pair should be stored in the underlying array (called buckets).
+    For example:
+
+    java
+    Copy
+    int hashCode = key.hashCode(); // This will return an integer
+    2. Buckets (Array of Linked Lists)
+    The HashMap maintains an array of buckets (or slots), and each bucket can hold one or more entries. The array is indexed by the hash code (after it’s modded by the size of the array).
+    The array size is typically chosen to be a prime number to reduce the likelihood of hash collisions.
+    For each key, the hash code is mapped to an index in the bucket array. This index determines where the key-value pair should be stored.
+    java
+    Copy
+    int index = hashCode % arraySize;
+    If multiple keys have the same hash code (i.e., a hash collision), they are stored in a linked list or another structure at that index.
+
+    3. Handling Collisions
+    Collisions happen when two different keys produce the same hash code and therefore map to the same bucket index. There are two common ways to handle collisions:
+
+    Chaining (Linked Lists): In this method, each bucket is a linked list (or another list-like structure). If two keys hash to the same bucket, the key-value pairs are added to that bucket’s linked list.
+
+    If a new key collides with an existing one, it is simply added to the linked list at that index.
+    When retrieving a value, the linked list is traversed to find the correct key.
+    Open Addressing: In this method, when a collision occurs, the HashMap searches for the next available bucket. Various techniques such as linear probing, quadratic probing, or double hashing can be used to find the next available bucket.
+
+    4. Resizing (Rehashing)
+    As the HashMap grows (due to inserting many key-value pairs), the number of collisions may increase, which can slow down operations. To avoid this, HashMap typically resizes (rehashes) itself when the load factor exceeds a threshold (usually 0.75). This involves creating a larger array and rehashing all existing keys to new bucket locations.
+    Rehashing is an expensive operation because all the entries need to be rehashed, but it ensures that the HashMap continues to provide efficient average time complexity for operations.
+    5. Operations
+    Insertion (put() method): To insert a key-value pair, the HashMap computes the hash code of the key, determines the index, and either inserts the pair in the appropriate bucket or appends it to the list at that bucket (in case of a collision).
+    Search (get() method): To search for a value by key, the HashMap computes the hash code of the key and finds the corresponding bucket. If a collision has occurred, the list at that bucket is traversed to find the correct key-value pair.
+    Deletion (remove() method): To remove a key-value pair, the HashMap computes the hash code, finds the correct bucket, and then searches for the key. If the key is found, it is removed from the bucket.
+    6. Time Complexity
+    Average Case:
+    Insert: O(1)
+    Search: O(1)
+    Delete: O(1)
+    Worst Case (if all keys hash to the same bucket, causing a long linked list or chain): O(n) where n is the number of entries in the HashMap.
+    However, with proper hash functions and load factors, the HashMap typically operates in O(1) time for most operations.
+
+
 What is the difference between ArrayList and LinkedList?
 What is the difference between TreeMap and HashMap?
 What is ConcurrentHashMap, and how is it different from HashMap?
