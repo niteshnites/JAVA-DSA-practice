@@ -281,7 +281,7 @@ Core Java Questions
     Use Set when you need only unique elements.
     Use Map when you need to store key-value pairs for quick lookups.
 
-What is the difference between HashMap and Hashtable?
+12. What is the difference between HashMap and Hashtable?
     Difference Between HashMap and Hashtable in Java
     Synchronization & Thread Safety
 
@@ -309,7 +309,7 @@ What is the difference between HashMap and Hashtable?
     Hashtable also uses hashing but synchronizes each method, making it inefficient in modern applications.
 
 
-Explain the internal working of HashMap.
+13. Explain the internal working of HashMap.
     A HashMap (also known as a hash table) is a data structure that allows for efficient storage and retrieval of key-value pairs. The internal working of a HashMap involves several key concepts: hashing, buckets, and collision handling. Here’s a breakdown of how it works:
 
     1. Hashing
@@ -354,60 +354,60 @@ Explain the internal working of HashMap.
     However, with proper hash functions and load factors, the HashMap typically operates in O(1) time for most operations.
 
 
-What is the difference between ArrayList and LinkedList?
-What is the difference between TreeMap and HashMap?
-What is ConcurrentHashMap, and how is it different from HashMap?
-How does Java handle synchronization in collections?
-What is the difference between fail-fast and fail-safe iterators?
-What is a PriorityQueue, and how does it work?
-What is the use of Comparator and Comparable interfaces?
-Multithreading and Concurrency
-What is the difference between Thread and Runnable?
-Explain thread lifecycle in Java.
-What is the difference between synchronized block and synchronized method?
-What is a deadlock? How can it be avoided?
-What is the volatile keyword in Java?
-What are Executor and ExecutorService?
-What are Callable and Future in Java?
-What is the difference between wait() and sleep()?
-What is the role of ReentrantLock in Java?
-Explain the concept of thread safety in Java. How is it achieved?
-JVM and Performance
-Explain the JVM architecture.
-What is the difference between heap and stack memory in Java?
-What are Garbage Collection (GC) types in Java?
-How does garbage collection work in Java?
-What is a ClassLoader? How does it work?
-What are memory leaks in Java? How do you avoid them?
-What are Soft, Weak, and Phantom references in Java?
-What is Just-In-Time (JIT) compilation?
-What are common JVM tuning parameters?
-How do you optimize the performance of a Java application?
-Java 8 and Beyond
-What are the main features introduced in Java 8?
-What is a functional interface? Give examples.
-Explain the concept of Streams in Java.
-What is the difference between map() and flatMap() in Streams?
-What are Optional classes in Java?
-What are default and static methods in interfaces?
-What are method references in Java?
-What are Lambda Expressions, and how are they used?
-Explain the Collectors utility in Streams.
-What is the difference between forEach() and peek() in Streams?
-Advanced Java Topics
-What are design patterns in Java? Provide examples of Singleton, Factory, and Observer.
-Explain the concept of dependency injection (DI) in Java.
-What are microservices, and how is Java used to build them?
-What is a servlet in Java? How does it work?
-Explain the lifecycle of a servlet.
-What is the difference between SOAP and REST APIs?
-What is Hibernate, and how does it work?
-What is Spring Framework? What are its main modules?
-What is a Java Reflection API, and how is it used?
-How do you implement secure communication in Java using SSL?
-Common Scenario-Based Questions
-How would you create a thread-safe Singleton in Java?
-Explain how to handle a large file with Java efficiently.
-How would you implement a producer-consumer problem in Java?
-How do you detect and resolve memory leaks in a Java application?
-How would you handle a high-traffic web application using Java?
+14. What is the difference between ArrayList and LinkedList?
+15. What is the difference between TreeMap and HashMap?
+16. What is ConcurrentHashMap, and how is it different from HashMap?
+17. How does Java handle synchronization in collections?
+18. What is the difference between fail-fast and fail-safe iterators?
+19. What is a PriorityQueue, and how does it work?
+20. What is the use of Comparator and Comparable interfaces?
+21. Multithreading and Concurrency
+22. What is the difference between Thread and Runnable?
+23. Explain thread lifecycle in Java.
+24. What is the difference between synchronized block and synchronized method?
+25. What is a deadlock? How can it be avoided?
+26. What is the volatile keyword in Java?
+27. What are Executor and ExecutorService?
+28. What are Callable and Future in Java?
+29. What is the difference between wait() and sleep()?
+30. What is the role of ReentrantLock in Java?
+31. Explain the concept of thread safety in Java. How is it achieved?
+32. JVM and Performance
+33. Explain the JVM architecture.
+34. What is the difference between heap and stack memory in Java?
+35. What are Garbage Collection (GC) types in Java?
+36. How does garbage collection work in Java?
+37. What is a ClassLoader? How does it work?
+38. What are memory leaks in Java? How do you avoid them?
+39. What are Soft, Weak, and Phantom references in Java?
+40. What is Just-In-Time (JIT) compilation?
+41. What are common JVM tuning parameters?
+42. How do you optimize the performance of a Java application?
+43. Java 8 and Beyond
+44. What are the main features introduced in Java 8?
+45. What is a functional interface? Give examples.
+46. Explain the concept of Streams in Java.
+47. What is the difference between map() and flatMap() in Streams?
+48. What are Optional classes in Java?
+49. What are default and static methods in interfaces?
+50. What are method references in Java?
+51. What are Lambda Expressions, and how are they used?
+52. Explain the Collectors utility in Streams.
+53. What is the difference between forEach() and peek() in Streams?
+54. Advanced Java Topics
+55. What are design patterns in Java? Provide examples of Singleton, Factory, and Observer.
+56. Explain the concept of dependency injection (DI) in Java.
+57. What are microservices, and how is Java used to build them?
+58. What is a servlet in Java? How does it work?
+59. Explain the lifecycle of a servlet.
+60. What is the difference between SOAP and REST APIs?
+61. What is Hibernate, and how does it work?
+62. What is Spring Framework? What are its main modules?
+63. What is a Java Reflection API, and how is it used?
+64. How do you implement secure communication in Java using SSL?
+65. Common Scenario-Based Questions
+66. How would you create a thread-safe Singleton in Java?
+67. Explain how to handle a large file with Java efficiently.
+68. How would you implement a producer-consumer problem in Java?
+69. How do you detect and resolve memory leaks in a Java application?
+70. How would you handle a high-traffic web application using Java?
