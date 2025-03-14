@@ -355,6 +355,29 @@ Core Java Questions
 
 
 14. What is the difference between ArrayList and LinkedList?
+    Both ArrayList and LinkedList are implementations of the List interface in Java, but they have different underlying data structures and performance characteristics. Here's a comparison:
+
+    1. Underlying Data Structure
+    ArrayList: Uses a dynamic array to store elements.
+    LinkedList: Uses a doubly linked list, where each node contains a reference to the next and previous nodes.
+    2. Performance Differences
+    Operation	ArrayList	LinkedList
+    Search (get(index))	O(1), fast because of direct index-based access.	O(n), slow because it needs to traverse the list from the beginning or end.
+    Insertion (at end)	O(1), if capacity is not exceeded. Otherwise, O(n) due to resizing.	O(1), since only a node addition is required.
+    Insertion (at middle/start)	O(n), shifting of elements is needed.	O(1), if at the start; O(n), if searching is required.
+    Deletion (at end)	O(1), simply remove the last element.	O(n), because traversal is needed.
+    Deletion (at middle/start)	O(n), shifting of elements is required.	O(1), if at start; O(n), if searching is needed.
+    3. Memory Usage
+    ArrayList: Uses less memory as it stores only data.
+    LinkedList: Uses more memory because each element has references (next and previous pointers).
+    4. Iteration Performance
+    ArrayList is faster for iteration because elements are stored in contiguous memory locations.
+    LinkedList is slower due to pointer dereferencing.
+    5. When to Use What?
+    Use ArrayList when: You need fast random access, and fewer insertions/deletions in the middle.
+    Use LinkedList when: You have frequent insertions/deletions in the middle but don’t require fast random access.
+
+
 15. What is the difference between TreeMap and HashMap?
 16. What is ConcurrentHashMap, and how is it different from HashMap?
 17. How does Java handle synchronization in collections?
