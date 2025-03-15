@@ -379,6 +379,21 @@ Core Java Questions
 
 
 15. What is the difference between TreeMap and HashMap?
+       The key differences between TreeMap and HashMap in Java are:
+
+       Feature	TreeMap	HashMap
+       Ordering	Maintains keys in sorted order (natural ordering or via a Comparator).	No ordering; keys are unordered.
+       Implementation	Uses a Red-Black Tree (self-balancing BST).	Uses a Hash Table (array + linked list or tree in case of collisions).
+       Performance	O(log n) for put(), get(), remove() due to tree operations.	O(1) on average for put(), get(), remove(), but O(n) in worst case (high collisions).
+       Null keys	Does NOT allow a null key but allows multiple null values.	Allows one null key and multiple null values.
+       Comparison Mechanism	Uses Comparable or Comparator to maintain sorting order.	Uses equals() and hashCode() for key lookup.
+       Memory Usage	Higher due to tree structure overhead.	Lower since it uses simple hashing.
+       Best Use Case	When you need sorted key order and can tolerate O(log n) complexity.	When you need fast lookups and ordering does not matter.
+       When to Use?
+       Use TreeMap when you need sorted data (e.g., implementing a navigation system, range queries).
+       Use HashMap when you need fast key-based access without sorting concerns.
+
+
 16. What is ConcurrentHashMap, and how is it different from HashMap?
 17. How does Java handle synchronization in collections?
 18. What is the difference between fail-fast and fail-safe iterators?
