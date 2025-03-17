@@ -395,6 +395,46 @@ Core Java Questions
 
 
 16. What is ConcurrentHashMap, and how is it different from HashMap?
+    The key differences between TreeMap and HashMap in Java are:
+
+    Feature	TreeMap	HashMap
+    Ordering	Maintains keys in sorted order (natural ordering or via a Comparator).	No ordering; keys are unordered.
+    Implementation	Uses a Red-Black Tree (self-balancing BST).	Uses a Hash Table (array + linked list or tree in case of collisions).
+    Performance	O(log n) for put(), get(), remove() due to tree operations.	O(1) on average for put(), get(), remove(), but O(n) in worst case (high collisions).
+    Null keys	Does NOT allow a null key but allows multiple null values.	Allows one null key and multiple null values.
+    Comparison Mechanism	Uses Comparable or Comparator to maintain sorting order.	Uses equals() and hashCode() for key lookup.
+    Memory Usage	Higher due to tree structure overhead.	Lower since it uses simple hashing.
+    Best Use Case	When you need sorted key order and can tolerate O(log n) complexity.	When you need fast lookups and ordering does not matter.
+    When to Use?
+    Use TreeMap when you need sorted data (e.g., implementing a navigation system, range queries).
+    Use HashMap when you need fast key-based access without sorting concerns.
+    Would you like an example to illustrate these differences? 🚀
+
+
+
+
+
+
+
+    You said:
+    16. What is ConcurrentHashMap, and how is it different from HashMap?
+    ChatGPT said:
+    ConcurrentHashMap vs HashMap
+    ConcurrentHashMap is a thread-safe variant of HashMap provided by Java for concurrent environments (multi-threading). Here's a detailed breakdown:
+
+    Feature	HashMap	ConcurrentHashMap
+    Thread Safety	NOT thread-safe. Multiple threads can cause inconsistent state.	Thread-safe. Supports concurrent access without locking the entire map.
+    Synchronization	You must manually synchronize externally (e.g., Collections.synchronizedMap()).	Uses internal locking (bucket-level / segment locking), improving performance over full map locking.
+    Performance	Faster in single-threaded environments.	Better performance than Hashtable or synchronized HashMap in multi-threaded environments.
+    Null keys/values	Allows one null key and multiple null values.	Does NOT allow null keys or null values.
+    Locking Mechanism	No internal locking.	Lock striping (prior to Java 8) or bin-level locking (Java 8+), reducing contention.
+    Fail-Safe Iterator	Iterator is fail-fast, throws ConcurrentModificationException on concurrent modification.	Iterator is weakly consistent, does not throw exceptions and reflects some but not necessarily all concurrent updates.
+    Best Use Case	Best for non-concurrent single-threaded applications.	Best for concurrent applications where multiple threads read/write data.
+    🔍 In Short:
+    Use ConcurrentHashMap in multi-threaded scenarios to avoid explicit synchronization and achieve better scalability.
+    Use HashMap when thread safety is not a concern.
+
+
 17. How does Java handle synchronization in collections?
 18. What is the difference between fail-fast and fail-safe iterators?
 19. What is a PriorityQueue, and how does it work?
