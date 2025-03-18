@@ -1,0 +1,18 @@
+{
+  "servicetype1": {
+    "mosaic_id_1": "itsm_id_1",
+    "mosaic_id_11": "itsm_id_11"
+  },
+  "servicetype2": {
+    "mosaic_id_2": "itsm_id_2",
+    "mosaic_id_22": "itsm_id_22"
+  },
+  "servicetype3": {
+    "mosaic_id_3": "itsm_id_3",
+    "mosaic_id_33": "itsm_id_33"
+  },
+  "servicetype4": {
+    "mosaic_id_4": "itsm_id_4",
+    "mosaic_id_44": "itsm_id_44"
+  }
+}
