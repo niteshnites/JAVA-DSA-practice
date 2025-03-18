@@ -6,6 +6,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -17,37 +18,27 @@ class ParallelJsonStringExecutor {
     public static void main(String[] args) throws Exception {
 
         // 💡 Define outer thread pool size manually
-        int outerThreadCount = 2; // Only one thread pool now
+        int THREAD_COUNT = 2;
 
         // Step 1: Read JSON file as a raw string
-        String jsonString = readJsonAsString("data.json");
+        String inputMapping = readJsonAsString("data.json");
 
         // Step 2: Parse JSON into Map<String, Map<String, String>>
         ObjectMapper mapper = new ObjectMapper();
-        Map<String, Map<String, String>> serviceMap = mapper.readValue(
-                jsonString, new TypeReference<Map<String, Map<String, String>>>() {});
+        HashMap<String, Object> mappings = mapper.readValue(inputMapping, new TypeReference<HashMap>(){});
 
         // Step 3: Single Executor for service types (no inner executor)
-        ExecutorService outerExecutor = Executors.newFixedThreadPool(outerThreadCount);
+        ExecutorService executor = Executors.newFixedThreadPool(THREAD_COUNT);
 
-        for (Map.Entry<String, Map<String, String>> serviceEntry : serviceMap.entrySet()) {
-            outerExecutor.submit(() -> {
-                String serviceType = serviceEntry.getKey();
-                Map<String, String> keyValuePairs = serviceEntry.getValue();
+        if(mappings!=null && !(mappings.isEmpty())){
 
-                System.out.println("🚀 Running ServiceType: " + serviceType + " | Thread: " + Thread.currentThread().getName());
-
-                // Process all sub-nodes inside this thread
-                keyValuePairs.forEach((mosaicKey, itsmValue) -> {
-                    Resource resource = threadLocalResource.get();
-                    resource.process(serviceType, mosaicKey, itsmValue);
-                    // Optional: threadLocalResource.remove(); // only if you want to remove after serviceType block
+            for (String mosaicSvcType : mappings.keySet()) {
+                executor.submit(() -> {
+                    System.out.println("🚀 Running ServiceType: " + mosaicSvcType + " | Thread: " + Thread.currentThread().getName());
                 });
-
-            });
+            }
         }
-
-        outerExecutor.shutdown();
+        executor.shutdown();
     }
 
     // Utility to read JSON file as String from the same package
