@@ -1,4 +1,4 @@
-package prallel_execution;
+package parallel_execution;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -16,6 +16,9 @@ class ParallelJsonStringExecutor {
 
     public static void main(String[] args) throws Exception {
 
+        // 💡 Define outer thread pool size manually
+        int outerThreadCount = 2; // Only one thread pool now
+
         // Step 1: Read JSON file as a raw string
         String jsonString = readJsonAsString("data.json");
 
@@ -24,40 +27,33 @@ class ParallelJsonStringExecutor {
         Map<String, Map<String, String>> serviceMap = mapper.readValue(
                 jsonString, new TypeReference<Map<String, Map<String, String>>>() {});
 
-        // Step 3: Outer Executor for service types
-        ExecutorService outerExecutor = Executors.newFixedThreadPool(serviceMap.size());
+        // Step 3: Single Executor for service types (no inner executor)
+        ExecutorService outerExecutor = Executors.newFixedThreadPool(outerThreadCount);
 
         for (Map.Entry<String, Map<String, String>> serviceEntry : serviceMap.entrySet()) {
             outerExecutor.submit(() -> {
                 String serviceType = serviceEntry.getKey();
-                Map<String, String> innerMap = serviceEntry.getValue();
+                Map<String, String> keyValuePairs = serviceEntry.getValue();
 
-                System.out.println("🚀 Running: " + serviceType + " | Thread: " + Thread.currentThread().getName());
+                System.out.println("🚀 Running ServiceType: " + serviceType + " | Thread: " + Thread.currentThread().getName());
 
-                // Inner executor for each mosaic_id -> itsm_id pair
-                ExecutorService innerExecutor = Executors.newFixedThreadPool(innerMap.size());
-
-                innerMap.forEach((mosaicId, itsmId) -> {
-                    innerExecutor.submit(() -> {
-                        Resource resource = threadLocalResource.get();
-                        resource.process(serviceType, mosaicId, itsmId);
-                        threadLocalResource.remove();
-                    });
+                // Process all sub-nodes inside this thread
+                keyValuePairs.forEach((mosaicKey, itsmValue) -> {
+                    Resource resource = threadLocalResource.get();
+                    resource.process(serviceType, mosaicKey, itsmValue);
+                    // Optional: threadLocalResource.remove(); // only if you want to remove after serviceType block
                 });
 
-                innerExecutor.shutdown();
-                while (!innerExecutor.isTerminated()) {}
             });
         }
 
         outerExecutor.shutdown();
     }
 
-    // Utility to read JSON file as String
+    // Utility to read JSON file as String from the same package
     private static String readJsonAsString(String fileName) throws IOException {
         ClassLoader classLoader = ParallelJsonStringExecutor.class.getClassLoader();
-        // This will work when services.json is in the same package or in /resources/prallel_execution/
-        var resource = classLoader.getResource("prallel_execution/" + fileName);
+        var resource = classLoader.getResource("parallel_execution/" + fileName);
 
         if (resource == null) {
             throw new IllegalArgumentException("File not found! " + fileName);
@@ -66,11 +62,11 @@ class ParallelJsonStringExecutor {
         return new String(Files.readAllBytes(Paths.get(resource.getPath())));
     }
 
-
+    // Processor stays the same
     static class Resource {
-        void process(String serviceType, String mosaicId, String itsmId) {
+        void process(String serviceType, String mosaicKey, String itsmValue) {
             System.out.println("🧩 [" + serviceType + "] Thread: " + Thread.currentThread().getName()
-                    + " | Processing: " + mosaicId + " -> " + itsmId);
+                    + " | Processing: " + mosaicKey + " -> " + itsmValue);
         }
     }
 }
