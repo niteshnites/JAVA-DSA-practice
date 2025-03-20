@@ -6,10 +6,13 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
 
 public class Main {
 
@@ -18,9 +21,12 @@ public class Main {
 
     public static void main(String[] args) throws Exception {
 
-        int THREAD_COUNT = 4; // Try changing this value!
+        int THREAD_COUNT = 4; // Adjust this to test parallel vs single thread
+
+        SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
 
         long startTime = System.currentTimeMillis();
+        System.out.println("🟢 Program Start Time: " + sdf.format(new Date(startTime)));
 
         String inputMapping = readJsonAsString("data.json");
 
@@ -49,15 +55,14 @@ public class Main {
                 });
             }
         }
-        executor.shutdown();
 
-        while (!executor.isTerminated()) {
-            Thread.sleep(100);
-        }
+        executor.shutdown();
+        executor.awaitTermination(1, TimeUnit.HOURS); // Ensures program waits
 
         long endTime = System.currentTimeMillis();
-        double totalSeconds = (endTime - startTime) / 1000.0;
+        System.out.println("🔴 Program End Time: " + sdf.format(new Date(endTime)));
 
+        double totalSeconds = (endTime - startTime) / 1000.0;
         System.out.println("⏱️ Total Execution Time: " + totalSeconds + " seconds");
     }
 
@@ -70,7 +75,7 @@ public class Main {
                 " :: Processing ServiceType: " + svcType);
 
         try {
-            Thread.sleep(1000); // Simulating some heavy task
+            Thread.sleep(1000); // Simulating heavy task
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
