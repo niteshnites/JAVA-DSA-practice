@@ -416,6 +416,41 @@ Core Java Questions
 
 
 17. How does Java handle synchronization in collections?
+    Java handles synchronization in collections in several ways to ensure thread safety when multiple threads access or modify collections concurrently:
+
+    1. Legacy Synchronized Collections
+    Java provides synchronized versions of some collections in the java.util.Collections utility class.
+
+    Example methods:
+
+    Collections.synchronizedList(List<T> list)
+
+    Collections.synchronizedMap(Map<K, V> map)
+
+    Collections.synchronizedSet(Set<T> set)
+
+    These wrappers internally synchronize every method on the passed collection to prevent concurrent access issues.
+
+    2. Concurrent Collections (java.util.concurrent)
+    Java provides concurrent collection classes designed for high concurrency without needing explicit synchronization.
+
+    ConcurrentHashMap – thread-safe and lock-segmented map.
+
+    CopyOnWriteArrayList – thread-safe variant of ArrayList optimized for scenarios with more reads than writes.
+
+    ConcurrentLinkedQueue – a non-blocking, thread-safe queue.
+
+    3. Synchronized Blocks or Methods
+    For custom collections or specific logic, developers can manually synchronize blocks of code using synchronized keyword.
+
+    Summary:
+    For simple cases, use Collections.synchronizedXXX().
+
+    For high-concurrency scenarios, use java.util.concurrent package.
+
+    Manual synchronization is used when fine-grained control is required.
+
+
 18. What is the difference between fail-fast and fail-safe iterators?
 19. What is a PriorityQueue, and how does it work?
 20. What is the use of Comparator and Comparable interfaces?
