@@ -452,6 +452,39 @@ Core Java Questions
 
 
 18. What is the difference between fail-fast and fail-safe iterators?
+    Fail-Fast Iterator (Java)
+    Behavior:
+    If the collection is structurally modified (add, remove, etc.) after the iterator is created, outside of the iterator, it will throw a ConcurrentModificationException.
+    Mechanism:
+    Uses an internal counter like modCount to detect modifications.
+    Examples:
+    ArrayList
+    HashMap
+    HashSet
+    LinkedList
+    Thread Safety:
+
+    Fail-Safe Iterator (Java)
+    Behavior:
+    The iterator does not throw ConcurrentModificationException even if the collection is modified during iteration.
+    It works on a clone (copy) of the collection.
+    Mechanism:
+    Operates on a separate copy of the collection (snapshot).
+    Examples:
+    ConcurrentHashMap
+    CopyOnWriteArrayList
+    Thread Safety:
+    Thread-safe.
+
+    Key Difference Summary:
+    Feature	Fail-Fast Iterator	Fail-Safe Iterator
+    Throws ConcurrentModificationException	Yes	No
+    Works on	Original collection	Copy of the collection (snapshot)
+    Thread-safety	Not thread-safe	Thread-safe
+    Performance	Faster, low overhead	Slower due to creating copies
+
+
+
 19. What is a PriorityQueue, and how does it work?
 20. What is the use of Comparator and Comparable interfaces?
 21. Multithreading and Concurrency
