@@ -1,24 +1,39 @@
 public class StringProgramTest {
     public static void main(String[] args) {
 
-        String string = "INC12c4D5";
+        String input = "INC12c4D5";
 
-        // check if first three char are INC and next must be digit
+        if (input.length() < 3) {
+            System.out.println("Input is too short to contain the required code.");
+            return;
+        }
 
-        String code = "";
-        String digits = "";
+        String code = input.substring(0, 3);
+        if (!code.equals("INC")) {
+            System.out.println("Invalid code prefix! Expected 'INC' but found: " + code);
+            return;
+        }
 
-        for (int i = 0; i < string.length(); i++) {
-            if(i < 3){
-                code += string.charAt(i);
+        StringBuilder digits = new StringBuilder();
+        boolean hasInvalidChar = false;
+
+        for (int i = 3; i < input.length(); i++) {
+            char ch = input.charAt(i);
+            if (Character.isDigit(ch)) {
+                digits.append(ch);
             } else {
-                if(Character.isDigit(string.charAt(i))){
-                    digits += string.charAt(i);
-                }else {
-                    System.out.println("We Have Wrong Value In Code That Is: " + string.charAt(i));
-                }
+                System.out.println("Invalid character detected at position " + i + ": " + ch);
+                hasInvalidChar = true;
             }
         }
-        System.out.println("Code: " + code + "\nDigits: "+ digits);
+
+        System.out.println("\nCode: " + code);
+        System.out.println("Digits: " + digits);
+
+        if (hasInvalidChar) {
+            System.out.println("\nWarning: Input contains invalid characters.");
+        } else {
+            System.out.println("\nInput is valid.");
+        }
     }
 }
