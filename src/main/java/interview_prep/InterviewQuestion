@@ -484,8 +484,25 @@ Core Java Questions
     Performance	Faster, low overhead	Slower due to creating copies
 
 
-
 19. What is a PriorityQueue, and how does it work?
+    PriorityQueue in Java
+    A PriorityQueue in Java is a data structure that is part of the Java Collections Framework and is implemented in the java.util package.
+    It is a special type of queue that follows the priority heap concept, meaning that elements are ordered based on their natural ordering (if they implement Comparable) or by a custom comparator.
+
+    How It Works
+    The head of the queue always contains the smallest element (min-heap by default).
+    The removal of elements follows priority order rather than the insertion order.
+    It is implemented using a binary heap (a complete binary tree).
+    The time complexity for insertion (offer()), deletion (poll()), and retrieval (peek()) is O(log n) because of heap operations.
+
+    Key Features
+    Not thread-safe: Use PriorityBlockingQueue for thread safety.
+    Does not allow null values.
+    Duplicates are allowed.
+    Ordering is based on natural ordering (Comparable) or a custom Comparator.
+    Not FIFO (First In, First Out): Elements are processed based on priority.
+
+
 20. What is the use of Comparator and Comparable interfaces?
 21. Multithreading and Concurrency
 22. What is the difference between Thread and Runnable?
