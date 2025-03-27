@@ -518,6 +518,11 @@ Core Java Questions
 
     It allows sorting based on different fields dynamically without modifying the class itself.
 
+    When to Use What?
+    Use Comparable when you have a single default sorting logic (e.g., sorting employees by ID).
+
+    Use Comparator when you need multiple sorting strategies (e.g., sorting employees by Name, Salary, Age).
+
 
 21. Multithreading and Concurrency
 22. What is the difference between Thread and Runnable?
