@@ -504,6 +504,21 @@ Core Java Questions
 
 
 20. What is the use of Comparator and Comparable interfaces?
+    Both Comparator and Comparable interfaces in Java are used to define custom sorting logic for objects, but they serve different purposes and have different implementations.
+
+    1. Comparable Interface (java.lang.Comparable)
+    It is used when an object needs to define its natural ordering (default sorting logic).
+
+    The class implements the Comparable<T> interface and overrides the compareTo(T o) method.
+
+    2. Comparator Interface (java.util.Comparator)
+    It is used when multiple sorting strategies are required.
+
+    We define separate classes (or use lambda expressions) to implement Comparator<T> and override compare(T o1, T o2).
+
+    It allows sorting based on different fields dynamically without modifying the class itself.
+
+
 21. Multithreading and Concurrency
 22. What is the difference between Thread and Runnable?
 23. Explain thread lifecycle in Java.
