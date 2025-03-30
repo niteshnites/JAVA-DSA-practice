@@ -30,11 +30,7 @@ class DemoTest1 {
         Optional<List<Integer>> id = Optional.of(List.of(1, 2, 3)); // Example data
         String value;
 
-        if (id.isPresent()) {
-            value = id.get().contains(3) ? "fail" : "pass";
-        } else {
-            value = "trust";
-        }
+        value = id.map(integers -> integers.contains(3) ? "fail" : "pass").orElse("trust");
 
         System.out.println(value); // Output: "fail"
     }
