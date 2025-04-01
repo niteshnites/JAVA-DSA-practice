@@ -525,6 +525,25 @@ Core Java Questions
 
 
 21. Multithreading and Concurrency
+    1. What is Multithreading?
+    Multithreading is a programming technique where multiple threads execute concurrently, sharing the same process resources. A thread is the smallest unit of execution in a program.
+
+    Key Benefits of Multithreading:
+    ✅ Improved Performance – Utilizes CPU cores efficiently.
+    ✅ Concurrency – Runs multiple tasks in parallel.
+    ✅ Resource Sharing – Multiple threads share memory and resources.
+    ✅ Responsiveness – Keeps applications responsive (e.g., GUI apps).
+
+    2. What is Concurrency?
+    Concurrency is the ability to run multiple tasks logically in parallel. It doesn’t necessarily mean tasks run simultaneously; instead, they overlap in execution (time-sliced).
+
+    Concurrency vs. Parallelism
+    Feature	Concurrency	Parallelism
+    Definition	Tasks appear to run simultaneously	Tasks actually run simultaneously
+    Execution	Time-sliced (switches tasks)	Uses multiple CPU cores
+    Example	Multitasking on a single-core CPU	Running tasks on multiple cores
+
+
 22. What is the difference between Thread and Runnable?
 23. Explain thread lifecycle in Java.
 24. What is the difference between synchronized block and synchronized method?
