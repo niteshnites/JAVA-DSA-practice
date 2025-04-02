@@ -545,6 +545,21 @@ Core Java Questions
 
 
 22. What is the difference between Thread and Runnable?
+    The difference between Thread and Runnable in Java lies in how they are used to create and execute threads.
+
+    1. Thread Class:
+    Thread is a class in Java that represents a thread of execution.
+    It extends the Thread class, so you cannot extend any other class (Java does not support multiple inheritance).
+    You override the run() method to define the task that the thread will execute.
+    It provides additional methods like start(), sleep(), join(), etc.
+
+    2. Runnable Interface:
+    Runnable is a functional interface in Java with a single method run().
+    It is used to define a task that can be executed by a Thread.
+    It allows multiple inheritance as a class can implement multiple interfaces.
+    It is preferred in scenarios where you need to separate the task logic from thread management.
+
+
 23. Explain thread lifecycle in Java.
 24. What is the difference between synchronized block and synchronized method?
 25. What is a deadlock? How can it be avoided?
