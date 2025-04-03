@@ -561,6 +561,61 @@ Core Java Questions
 
 
 23. Explain thread lifecycle in Java.
+    In Java, a thread goes through several stages from creation to termination. These stages form the Thread Lifecycle, which consists of five main states:
+
+    New (Created)
+        When a thread object is created but not yet started.
+        It remains in this state until the start() method is called.
+        Thread t1 = new Thread(() -> System.out.println("Thread Running"));
+
+    Runnable
+        After calling start(), the thread enters the Runnable state.
+        It is ready to run but is waiting for the CPU scheduler to allocate processor time.
+        t1.start();  // Now the thread is in the Runnable state
+
+    Blocked / Waiting / Timed Waiting
+        A) Blocked State
+        Occurs when a thread is trying to access a synchronized resource that is locked by another thread.
+        synchronized(object) {
+            // Thread enters Blocked state if another thread holds the lock
+        }
+        B) Waiting State
+        A thread waits indefinitely until another thread notifies it using notify() or notifyAll().
+        synchronized(object) {
+            object.wait();  // Thread enters Waiting state
+        }
+        C) Timed Waiting State
+        A thread waits for a specified time using methods like sleep(), wait(time), or join(time).
+        Thread.sleep(1000);  // Thread enters Timed Waiting state for 1 second
+
+    Running
+        When the thread scheduler picks the thread from the Runnable state, it enters the Running state.
+        It is now executing its run() method.
+        class MyThread extends Thread {
+            public void run() {
+                System.out.println("Thread is running...");
+            }
+        }
+
+    Terminated (Dead)
+        A thread enters the Terminated state when it completes execution or is stopped using stop() (deprecated).
+        Once terminated, it cannot be restarted.
+        t1.join();  // Thread completes execution and moves to Terminated state
+
+    Thread Lifecycle Diagram
+        New --> Runnable --> Running --> Terminated
+                 |               |
+                \|/             \|/
+             Blocked     Waiting / Timed Waiting
+
+    Key Points
+    start() moves a thread from New → Runnable.
+    Thread Scheduler moves a thread from Runnable → Running.
+    sleep() / wait() moves a thread to Timed Waiting / Waiting.
+    notify() / notifyAll() moves a thread from Waiting → Runnable.
+    **When execution is done, the thread moves to the Terminated state.
+
+
 24. What is the difference between synchronized block and synchronized method?
 25. What is a deadlock? How can it be avoided?
 26. What is the volatile keyword in Java?
