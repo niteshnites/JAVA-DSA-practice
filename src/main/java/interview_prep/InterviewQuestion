@@ -615,6 +615,25 @@ Core Java Questions
 
 
 24. What is the difference between synchronized block and synchronized method?
+    🔒 1. Synchronized Method
+    Declared with the synchronized keyword in the method signature.
+    Locks the entire method.
+    The lock is on the object (this) for instance methods, or on the Class object for static methods.
+    🔹 Pros:
+    Simple and clear.
+    🔸 Cons:
+    Less flexible: synchronizes the whole method, even if only a part needs to be synchronized.
+
+    🔐 2. Synchronized Block
+    Synchronization is applied to a specific block of code inside a method.
+    Allows locking on a specific object, not necessarily this.
+    🔹 Pros:
+    More flexible and efficient: only critical section is locked.
+    Reduces the time a thread holds the lock, improving concurrency.
+    🔸 Cons:
+    Slightly more complex to implement and manage.
+
+
 25. What is a deadlock? How can it be avoided?
 26. What is the volatile keyword in Java?
 27. What are Executor and ExecutorService?
