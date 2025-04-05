@@ -545,6 +545,19 @@ Core Java Questions
 
 
 22. What is the difference between Thread and Runnable?
+    | **Aspect**             | **Thread**                                                              | **Runnable**                                                           |
+    |------------------------|-------------------------------------------------------------------------|------------------------------------------------------------------------|
+    | **Type**               | Class (`java.lang.Thread`)                                              | Interface (`java.lang.Runnable`)                                       |
+    | **Inheritance**        | Can't extend another class (single inheritance limitation)              | Can implement alongside extending another class                        |
+    | **Usage**              | Extend `Thread` and override `run()` method                             | Implement `Runnable` and pass to a `Thread`                            |
+    | **Code Example**       | `class MyThread extends Thread { public void run() { ... } }`           | `class MyRunnable implements Runnable { public void run() { ... } }`   |
+    | **Thread Creation**    | `MyThread t = new MyThread(); t.start();`                               | `Thread t = new Thread(new MyRunnable()); t.start();`                  |
+    | **Reusability**        | Less reusable (task tightly bound to thread)                            | More reusable (task separated from thread)                             |
+    | **Resource Sharing**   | Not ideal for shared resources                                          | Better for shared resource handling                                    |
+    | **Best Use Case**      | Simple or quick custom thread behavior                                  | Scalable and flexible multi-threading                                  |
+    | **Performance**        | Slightly heavier                                                        | Lightweight and better performance for many threads                    |
+
+
 23. Explain thread lifecycle in Java.
 24. What is the difference between synchronized block and synchronized method?
 25. What is a deadlock? How can it be avoided?
