@@ -635,6 +635,23 @@ Core Java Questions
 
 
 25. What is a deadlock? How can it be avoided?
+    A deadlock is a situation in multithreaded programming where two or more threads are blocked forever, each waiting for the other to release a resource.
+    🔁 Example Scenario:
+    Thread A holds Lock 1 and waits for Lock 2.
+    Thread B holds Lock 2 and waits for Lock 1.
+    Neither can proceed, resulting in a deadlock.
+
+    🛡️ How to Avoid Deadlock?
+    1. Lock Ordering
+    Always acquire locks in a specific global order. If every thread acquires locks in the same order, deadlocks can be avoided.
+    2. Try-and-Timeout / tryLock()
+    Use ReentrantLock with tryLock() and timeout.
+    3. Avoid Nested Locks
+    Minimize using multiple synchronized blocks that lock on different objects.
+    4. Deadlock Detection Tools
+    Use thread dumps (jstack) or profilers like VisualVM, JConsole, or IntelliJ's debugger to detect deadlocks.
+
+
 26. What is the volatile keyword in Java?
 27. What are Executor and ExecutorService?
 28. What are Callable and Future in Java?
