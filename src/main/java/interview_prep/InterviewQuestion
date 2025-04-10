@@ -2,30 +2,33 @@ Core Java Questions
 1. What is the difference between JDK, JRE, and JVM?
     The key differences between JDK (Java Development Kit), JRE (Java Runtime Environment), and JVM (Java Virtual Machine) are:
 
-    Feature	JDK (Java Development Kit)	JRE (Java Runtime Environment)	JVM (Java Virtual Machine)
-    Definition	A full development package for creating Java applications.	A runtime environment to run Java applications.	A virtual machine that executes Java bytecode.
-    Purpose	Used for developing, compiling, and running Java applications.	Provides the necessary libraries and components to run Java programs.	Converts Java bytecode into machine code for execution.
-    Components	Includes JRE, JVM, compiler (javac), debugger, and other development tools.	Includes JVM and essential libraries but does not include development tools.	Part of JRE; responsible for interpreting and executing Java code.
-    Contains	JRE + Development tools (javac, jar, javadoc, etc.)	JVM + Java libraries and classes	Just the Java Virtual Machine (JIT compiler, garbage collector, etc.)
-    Usage	Developers use it to write and compile Java programs.	End-users use it to run Java applications.	It is used internally by JRE/JDK to execute Java programs.
+    | Feature     | JDK (Java Development Kit)                                        | JRE (Java Runtime Environment)                                   | JVM (Java Virtual Machine)                                         |
+    |-------------|-------------------------------------------------------------------|------------------------------------------------------------------|--------------------------------------------------------------------|
+    | Definition  | A full development package for creating Java applications.        | A runtime environment to run Java applications.                  | A virtual machine that executes Java bytecode.                     |
+    | Purpose     | Used for developing, compiling, and running Java applications.    | Provides the necessary libraries and components to run programs. | Converts Java bytecode into machine code for execution.            |
+    | Components  | Includes JRE, JVM, compiler (javac), debugger, and tools.         | Includes JVM and essential libraries, no development tools.      | Part of JRE; interprets and executes Java code.                    |
+    | Contains    | JRE + Development tools (javac, jar, javadoc, etc.)               | JVM + Java libraries and classes                                 | Just the JVM (JIT compiler, garbage collector, etc.)               |
+    | Usage       | Developers use it to write and compile Java programs.             | End-users use it to run Java applications.                       | Internally used by JRE/JDK to execute Java programs.               |
 
 
 2. Explain the concept of OOPs in Java. What are the four main principles?
-    Platform Independence (WORA)
-    Object-Oriented
-    Simple
-    Secure
-    Robust
-    Multithreading
-    Portable
-    High Performance (JIT)
-    Dynamic and Extensible
-    Distributed
-    Interpreted
-    Automatic Memory Management (Garbage Collection)
-    Rich API
-    Scalability and Versatility
-    Strong Community Support
+    | Java Feature                                  | Description                                                                |
+    |-----------------------------------------------|----------------------------------------------------------------------------|
+    | Platform Independence (WORA)                  | Write Once, Run Anywhere – Java runs on any platform with a JVM.           |
+    | Object-Oriented                               | Everything in Java is treated as an object, supporting OOP principles.     |
+    | Simple                                        | Easy to learn with clean syntax and minimal low-level complexity.          |
+    | Secure                                        | Includes bytecode verification, security APIs, and runtime restrictions.   |
+    | Robust                                        | Strong memory management and error handling features.                      |
+    | Multithreading                                | Supports concurrent execution of multiple threads.                         |
+    | Portable                                      | Java programs run consistently across different platforms.                 |
+    | High Performance (JIT)                        | Just-In-Time compiler enhances performance by compiling bytecode at runtime|
+    | Dynamic and Extensible                        | Loads classes dynamically and supports runtime linking.                    |
+    | Distributed                                   | Has built-in support for networking and distributed computing (RMI, etc).  |
+    | Interpreted                                   | Bytecode is interpreted by the JVM, enabling platform independence.        |
+    | Automatic Memory Management GarbageCollection | Manages memory allocation and deallocation automatically.                  |
+    | Rich API                                      | Offers extensive libraries for data structures, networking, and more.      |
+    | Scalability and Versatility                   | Suitable for both small programs and large-scale applications.             |
+    | Strong Community Support                      | Large global community with extensive documentation and support.           |
 
 
 3. What is the difference between == and equals() in Java?
