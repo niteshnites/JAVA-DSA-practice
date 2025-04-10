@@ -1,3 +1,5 @@
+package practice;
+
 public class FibonacciSeriesProgramTest {
     public static void main(String[] args) {
 

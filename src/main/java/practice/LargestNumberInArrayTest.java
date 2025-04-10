@@ -1,3 +1,5 @@
+package practice;
+
 public class LargestNumberInArrayTest {
     public static void main(String[] args) {
 

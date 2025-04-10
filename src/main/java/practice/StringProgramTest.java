@@ -1,3 +1,5 @@
+package practice;
+
 public class StringProgramTest {
     public static void main(String[] args) {
 

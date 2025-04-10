@@ -1,3 +1,5 @@
+package practice;
+
 public class ArrayFindElementTest {
     public static void main(String[] args) {
 
