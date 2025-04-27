@@ -1,0 +1,699 @@
+Core Java Questions
+1. What is the difference between JDK, JRE, and JVM?
+    The key differences between JDK (Java Development Kit), JRE (Java Runtime Environment), and JVM (Java Virtual Machine) are:
+
+    Feature	JDK (Java Development Kit)	JRE (Java Runtime Environment)	JVM (Java Virtual Machine)
+    Definition	A full development package for creating Java applications.	A runtime environment to run Java applications.	A virtual machine that executes Java bytecode.
+    Purpose	Used for developing, compiling, and running Java applications.	Provides the necessary libraries and components to run Java programs.	Converts Java bytecode into machine code for execution.
+    Components	Includes JRE, JVM, compiler (javac), debugger, and other development tools.	Includes JVM and essential libraries but does not include development tools.	Part of JRE; responsible for interpreting and executing Java code.
+    Contains	JRE + Development tools (javac, jar, javadoc, etc.)	JVM + Java libraries and classes	Just the Java Virtual Machine (JIT compiler, garbage collector, etc.)
+    Usage	Developers use it to write and compile Java programs.	End-users use it to run Java applications.	It is used internally by JRE/JDK to execute Java programs.
+
+
+2. Explain the concept of OOPs in Java. What are the four main principles?
+    Platform Independence (WORA)
+    Object-Oriented
+    Simple
+    Secure
+    Robust
+    Multithreading
+    Portable
+    High Performance (JIT)
+    Dynamic and Extensible
+    Distributed
+    Interpreted
+    Automatic Memory Management (Garbage Collection)
+    Rich API
+    Scalability and Versatility
+    Strong Community Support
+
+
+3. What is the difference between == and equals() in Java?
+    1. == Operator:
+    It is a reference comparison operator.
+    It checks whether two references point to the same memory location.
+    It does not compare the actual content of objects.
+
+    2. equals() Method:
+    It is a content comparison method.
+    The default implementation in Object class performs the same reference check as ==, but many classes (like String, Integer, etc.) override it to compare actual content.
+
+
+4. What are Wrapper Classes in Java?
+    Wrapper classes in Java are used to convert primitive data types into objects. Each primitive type in Java has a corresponding wrapper class in the java.lang package.
+    Why Use Wrapper Classes?
+    Collections Framework – Collections like ArrayList and HashMap store only objects, not primitives.
+    Autoboxing and Unboxing – Java automatically converts primitives to wrapper objects and vice versa.
+    Utility Methods – Wrapper classes provide useful methods for data conversion, parsing, etc.
+    Synchronization – Objects are required in multi-threaded environments.
+    List of Wrapper Classes
+    Primitive Type	Wrapper Class
+    byte	Byte
+    short	Short
+    int	Integer
+    long	Long
+    float	Float
+    double	Double
+    char	Character
+    boolean	Boolean
+
+
+5. What is the significance of the final keyword in Java?
+    The final keyword in Java is used to impose restrictions on variables, methods, and classes. It helps in maintaining immutability, security, and preventing unintended modifications.
+
+    Usage of final in Java
+    1. final Variable (Constant Values)
+    A final variable’s value cannot be changed once initialized.
+    It must be assigned at the time of declaration or inside a constructor.
+
+    2. final Method (Prevent Overriding)
+    A final method cannot be overridden by subclasses.
+    This ensures method functionality remains unchanged.
+
+    3. final Class (Prevent Inheritance)
+    A final class cannot be extended (inherited).
+    This ensures security and immutability.
+
+    Key Points to Remember
+    final variables → Value cannot change after initialization.
+    final methods → Cannot be overridden.
+    final classes → Cannot be inherited.
+    final does not make objects immutable, only references cannot be changed.
+
+
+6. What is the difference between String, StringBuilder, and StringBuffer?
+    In Java, String, StringBuilder, and StringBuffer are used to handle and manipulate strings. However, they differ in mutability, performance, and thread safety.
+
+    1. String (Immutable)
+    Immutable: Once a String object is created, it cannot be modified.
+    Every modification (e.g., concatenation) creates a new object in memory.
+    Stored in String Pool (Heap Memory).
+    Memory Impact: Since every modification creates a new object, excessive use may lead to high memory consumption.
+
+    2. StringBuffer (Mutable & Thread-Safe)
+    Mutable: Can be modified without creating new objects.
+    Thread-Safe: Uses synchronized methods, making it safe for multi-threading.
+    Slower than StringBuilder due to synchronization overhead.
+    Use Case: Suitable for multi-threaded environments where thread safety is required.
+
+    3. StringBuilder (Mutable & Faster, Not Thread-Safe)
+    Mutable: Can be modified without creating new objects.
+    Not Thread-Safe: Does not use synchronization, making it faster than StringBuffer.
+    Use Case: Best for single-threaded applications where performance is important.
+
+
+7. What is a Java ClassLoader?
+    A Java ClassLoader is a part of the Java Runtime Environment (JRE) responsible for dynamically loading classes into memory when required. It is a component of the Java Class Loading Mechanism and follows the delegation model to load classes efficiently.
+
+    Types of Java ClassLoaders
+    Java provides three primary ClassLoaders:
+
+    Bootstrap ClassLoader
+
+    Loads core Java classes from the rt.jar (or equivalent) such as java.lang, java.util, etc.
+    Implemented in native code.
+    It does not have a parent.
+    Extension (Platform) ClassLoader
+
+    Loads classes from the ext directory ($JAVA_HOME/lib/ext or specified java.ext.dirs).
+    Delegates loading to Bootstrap ClassLoader if needed.
+    Application (System) ClassLoader
+
+    Loads classes from the application's classpath (e.g., directories or JAR files specified in CLASSPATH).
+    Delegates loading to Extension ClassLoader first.
+    How Java ClassLoader Works
+    When a class is needed, the Application ClassLoader first checks whether it is already loaded.
+    If not found, it delegates the request to its parent (Extension ClassLoader).
+    If the class is still not found, the Bootstrap ClassLoader is checked.
+    If none of the parent ClassLoaders can find the class, it is loaded by the original requesting ClassLoader.
+    If the class is not found, a ClassNotFoundException or NoClassDefFoundError is thrown.
+    Custom ClassLoaders
+    Developers can create their own custom ClassLoaders by extending the ClassLoader class. This is useful in:
+
+    Dynamic class loading (e.g., plugins, frameworks like Spring, Hibernate).
+    Class reloading (e.g., hot-swapping in development tools).
+
+
+8. What are checked and unchecked exceptions? Provide examples.
+    In Java, exceptions are categorized into checked and unchecked exceptions based on when they are detected and handled.
+
+    1. Checked Exceptions
+    Checked exceptions are checked at compile-time, meaning the compiler forces you to handle them using a try-catch block or declare them using the throws keyword.
+    These exceptions usually occur due to external factors (like file access, database issues, etc.).
+    💡 Key Points:
+    IOException is a checked exception.
+    The compiler forces us to handle it using try-catch.
+    Common Checked Exceptions
+    IOException (File not found, file reading issues)
+    SQLException (Database connection issues)
+    InterruptedException (Thread interruption)
+    ClassNotFoundException (Class not found at runtime)
+
+    2. Unchecked Exceptions
+    Unchecked exceptions are not checked at compile-time. These occur due to programming errors (like division by zero, null pointer access, etc.).
+    The compiler does not force you to handle them.
+    💡 Key Points:
+    NullPointerException occurs because text is null.
+    The compiler does not force you to handle it.
+    It can be prevented using null checks.
+    Common Unchecked Exceptions
+    NullPointerException (Accessing a method on null)
+    ArrayIndexOutOfBoundsException (Accessing an array element out of range)
+    ArithmeticException (Division by zero)
+    IllegalArgumentException (Invalid method argument)
+    NumberFormatException (Parsing non-numeric string as a number)
+
+9. Explain the difference between abstract class and interface.
+    Both abstract classes and interfaces are used to achieve abstraction in Java, but they have key differences in terms of usage, implementation, and behavior.
+
+    1. Abstract Class
+    An abstract class is a class that cannot be instantiated and may contain both abstract (unimplemented) and concrete (implemented) methods.
+    💡 Key Points:
+    Can have both abstract and concrete methods.
+    Can have constructors and instance variables.
+    Supports single inheritance (a class can extend only one abstract class).
+
+    2. Interface
+    An interface is a blueprint that defines only abstract methods (before Java 8). From Java 8 onwards, it can also have default and static methods with implementation.
+    💡 Key Points:
+    All methods are public and abstract by default.
+    Cannot have constructors or instance variables.
+    Supports multiple inheritance (a class can implement multiple interfaces).
+    Can have default and static methods (Java 8+).
+
+
+10. Collections Framework
+    The Collections Framework in Java is a unified architecture for handling and manipulating groups of objects. It provides a set of interfaces and classes to store, retrieve, and process data efficiently.
+
+    1. Key Components of the Collections Framework
+    The framework includes:
+
+    Interfaces – Define the abstract data structures (e.g., List, Set, Map, Queue).
+    Classes – Implementations of these interfaces (e.g., ArrayList, HashSet, HashMap).
+    Algorithms – Utility methods for searching, sorting, and manipulating collections (e.g., Collections.sort()).
+
+    2. Core Interfaces and Their Implementations
+    A. List (Ordered Collection, Allows Duplicates)
+    Implements a dynamic array-like structure.
+    Maintains insertion order.
+    Allows random access using an index.
+    Implementations:
+
+    ArrayList (Fast random access, slower inserts/deletes)
+    LinkedList (Faster inserts/deletes, slower random access)
+    Vector (Thread-safe, synchronized)
+    B. Set (Unique Elements, No Duplicates)
+    Unordered collection of unique elements.
+    No index-based access.
+    Implementations:
+
+    HashSet (Uses hashing, fast access but unordered)
+    LinkedHashSet (Maintains insertion order)
+    TreeSet (Sorted order using Red-Black Tree)
+    C. Map (Key-Value Pair Collection, No Duplicate Keys)
+    Stores data in key-value pairs.
+    Keys must be unique, values can be duplicate.
+    Implementations:
+
+    HashMap (Unordered, fast access)
+    LinkedHashMap (Maintains insertion order)
+    TreeMap (Sorted order by key)
+    Hashtable (Thread-safe, synchronized)
+    D. Queue (FIFO-Based, Order-Based Processing)
+    Used for storing elements in a queue structure.
+    Implementations:
+
+    PriorityQueue (Elements ordered based on priority)
+    ArrayDeque (Efficient for stack and queue operations)
+
+    3. Utility Classes in Collections Framework
+    Java provides utility classes to operate on collections:
+
+    Collections – Sorting, searching, shuffling (Collections.sort())
+    Arrays – Converting arrays to lists (Arrays.asList())
+    4. Benefits of Using the Collections Framework
+    ✔ Reduces programming effort
+    ✔ Improves code quality and reusability
+    ✔ Provides built-in algorithms and data structures
+    ✔ Offers thread-safe and concurrent collections (ConcurrentHashMap, CopyOnWriteArrayList)
+
+
+11. What is the difference between List, Set, and Map in Java?
+    Difference Between List, Set, and Map in Java
+    Java provides List, Set, and Map interfaces in the Java Collections Framework (JCF) to store and manipulate collections of objects. Each of these has different characteristics.
+    Definition:
+
+    List: A collection that allows duplicate elements and maintains insertion order.
+    Set: A collection that does not allow duplicates and does not guarantee order (except for some implementations).
+    Map: A key-value pair collection where keys must be unique, but values can be duplicated.
+    Duplicates Allowed?
+
+    List: ✅ Yes, duplicates are allowed.
+    Set: ❌ No, duplicates are not allowed.
+    Map: ❌ No, keys must be unique, but values can be duplicated.
+    Ordering of Elements
+
+    List: Maintains the insertion order of elements.
+    Set: Does not guarantee order (except LinkedHashSet maintains insertion order and TreeSet maintains sorted order).
+    Map: Does not guarantee order (except LinkedHashMap maintains insertion order and TreeMap sorts by keys).
+    Accessing Elements
+
+    List: Supports index-based access (list.get(index)).
+    Set: Does not support index-based access.
+    Map: Access elements using keys (map.get(key)).
+    Null Values
+
+    List: ✅ Allows multiple null values.
+    Set: ✅ Allows only one null value.
+    Map: ✅ Allows one null key and multiple null values.
+    Performance Considerations
+
+    List: Faster for indexed access and iteration.
+    Set: Faster for checking uniqueness but slower than List for indexed access.
+    Map: Faster lookups using keys but may consume more memory due to key-value storage.
+    Common Implementations
+
+    List: ArrayList, LinkedList, Vector.
+    Set: HashSet, LinkedHashSet, TreeSet.
+    Map: HashMap, LinkedHashMap, TreeMap.
+    Conclusion
+    Use List when order is important and duplicates are needed.
+    Use Set when you need only unique elements.
+    Use Map when you need to store key-value pairs for quick lookups.
+
+12. What is the difference between HashMap and Hashtable?
+    Difference Between HashMap and Hashtable in Java
+    Synchronization & Thread Safety
+
+    HashMap is not synchronized and not thread-safe. Multiple threads can access it simultaneously without locking.
+    Hashtable is synchronized and thread-safe. Only one thread can modify it at a time, making it slower in multi-threaded environments.
+    Performance
+
+    HashMap is faster since it does not have synchronization overhead.
+    Hashtable is slower due to synchronization.
+    Null Keys & Values
+
+    HashMap allows one null key and multiple null values.
+    Hashtable does not allow null keys or values.
+    Iteration (Fail-Fast vs. Fail-Safe)
+
+    HashMap uses fail-fast iterators (throws ConcurrentModificationException if modified during iteration).
+    Hashtable uses fail-safe enumerators, which do not throw exceptions if modified while iterating.
+    Legacy vs. Modern Implementation
+
+    HashMap is part of the Java Collections Framework and introduced in Java 1.2.
+    Hashtable is a legacy class from Java 1.0 but was later retrofitted to implement the Map interface.
+    Internal Implementation
+
+    HashMap uses a bucket-based hashing structure and provides better performance for large data.
+    Hashtable also uses hashing but synchronizes each method, making it inefficient in modern applications.
+
+
+13. Explain the internal working of HashMap.
+    A HashMap (also known as a hash table) is a data structure that allows for efficient storage and retrieval of key-value pairs. The internal working of a HashMap involves several key concepts: hashing, buckets, and collision handling. Here’s a breakdown of how it works:
+
+    1. Hashing
+    Hash Function: The primary mechanism that drives a HashMap is the hash function. When a key is added to the map, it is passed through a hash function, which computes an integer value (called the hash code) based on the key.
+    This hash code helps in determining where the key-value pair should be stored in the underlying array (called buckets).
+    For example:
+
+    java
+    Copy
+    int hashCode = key.hashCode(); // This will return an integer
+    2. Buckets (Array of Linked Lists)
+    The HashMap maintains an array of buckets (or slots), and each bucket can hold one or more entries. The array is indexed by the hash code (after it’s modded by the size of the array).
+    The array size is typically chosen to be a prime number to reduce the likelihood of hash collisions.
+    For each key, the hash code is mapped to an index in the bucket array. This index determines where the key-value pair should be stored.
+    java
+    Copy
+    int index = hashCode % arraySize;
+    If multiple keys have the same hash code (i.e., a hash collision), they are stored in a linked list or another structure at that index.
+
+    3. Handling Collisions
+    Collisions happen when two different keys produce the same hash code and therefore map to the same bucket index. There are two common ways to handle collisions:
+
+    Chaining (Linked Lists): In this method, each bucket is a linked list (or another list-like structure). If two keys hash to the same bucket, the key-value pairs are added to that bucket’s linked list.
+
+    If a new key collides with an existing one, it is simply added to the linked list at that index.
+    When retrieving a value, the linked list is traversed to find the correct key.
+    Open Addressing: In this method, when a collision occurs, the HashMap searches for the next available bucket. Various techniques such as linear probing, quadratic probing, or double hashing can be used to find the next available bucket.
+
+    4. Resizing (Rehashing)
+    As the HashMap grows (due to inserting many key-value pairs), the number of collisions may increase, which can slow down operations. To avoid this, HashMap typically resizes (rehashes) itself when the load factor exceeds a threshold (usually 0.75). This involves creating a larger array and rehashing all existing keys to new bucket locations.
+    Rehashing is an expensive operation because all the entries need to be rehashed, but it ensures that the HashMap continues to provide efficient average time complexity for operations.
+    5. Operations
+    Insertion (put() method): To insert a key-value pair, the HashMap computes the hash code of the key, determines the index, and either inserts the pair in the appropriate bucket or appends it to the list at that bucket (in case of a collision).
+    Search (get() method): To search for a value by key, the HashMap computes the hash code of the key and finds the corresponding bucket. If a collision has occurred, the list at that bucket is traversed to find the correct key-value pair.
+    Deletion (remove() method): To remove a key-value pair, the HashMap computes the hash code, finds the correct bucket, and then searches for the key. If the key is found, it is removed from the bucket.
+    6. Time Complexity
+    Average Case:
+    Insert: O(1)
+    Search: O(1)
+    Delete: O(1)
+    Worst Case (if all keys hash to the same bucket, causing a long linked list or chain): O(n) where n is the number of entries in the HashMap.
+    However, with proper hash functions and load factors, the HashMap typically operates in O(1) time for most operations.
+
+
+14. What is the difference between ArrayList and LinkedList?
+    Both ArrayList and LinkedList are implementations of the List interface in Java, but they have different underlying data structures and performance characteristics. Here's a comparison:
+
+    1. Underlying Data Structure
+    ArrayList: Uses a dynamic array to store elements.
+    LinkedList: Uses a doubly linked list, where each node contains a reference to the next and previous nodes.
+    2. Performance Differences
+    Operation	ArrayList	LinkedList
+    Search (get(index))	O(1), fast because of direct index-based access.	O(n), slow because it needs to traverse the list from the beginning or end.
+    Insertion (at end)	O(1), if capacity is not exceeded. Otherwise, O(n) due to resizing.	O(1), since only a node addition is required.
+    Insertion (at middle/start)	O(n), shifting of elements is needed.	O(1), if at the start; O(n), if searching is required.
+    Deletion (at end)	O(1), simply remove the last element.	O(n), because traversal is needed.
+    Deletion (at middle/start)	O(n), shifting of elements is required.	O(1), if at start; O(n), if searching is needed.
+    3. Memory Usage
+    ArrayList: Uses less memory as it stores only data.
+    LinkedList: Uses more memory because each element has references (next and previous pointers).
+    4. Iteration Performance
+    ArrayList is faster for iteration because elements are stored in contiguous memory locations.
+    LinkedList is slower due to pointer dereferencing.
+    5. When to Use What?
+    Use ArrayList when: You need fast random access, and fewer insertions/deletions in the middle.
+    Use LinkedList when: You have frequent insertions/deletions in the middle but don’t require fast random access.
+
+
+15. What is the difference between TreeMap and HashMap?
+   The key differences between TreeMap and HashMap in Java are:
+
+   Feature	TreeMap	HashMap
+   Ordering	Maintains keys in sorted order (natural ordering or via a Comparator).	No ordering; keys are unordered.
+   Implementation	Uses a Red-Black Tree (self-balancing BST).	Uses a Hash Table (array + linked list or tree in case of collisions).
+   Performance	O(log n) for put(), get(), remove() due to tree operations.	O(1) on average for put(), get(), remove(), but O(n) in worst case (high collisions).
+   Null keys	Does NOT allow a null key but allows multiple null values.	Allows one null key and multiple null values.
+   Comparison Mechanism	Uses Comparable or Comparator to maintain sorting order.	Uses equals() and hashCode() for key lookup.
+   Memory Usage	Higher due to tree structure overhead.	Lower since it uses simple hashing.
+   Best Use Case	When you need sorted key order and can tolerate O(log n) complexity.	When you need fast lookups and ordering does not matter.
+   When to Use?
+   Use TreeMap when you need sorted data (e.g., implementing a navigation system, range queries).
+   Use HashMap when you need fast key-based access without sorting concerns.
+
+
+16. What is ConcurrentHashMap, and how is it different from HashMap?
+    The key differences between TreeMap and HashMap in Java are:
+
+    Feature	TreeMap	HashMap
+    Ordering	Maintains keys in sorted order (natural ordering or via a Comparator).	No ordering; keys are unordered.
+    Implementation	Uses a Red-Black Tree (self-balancing BST).	Uses a Hash Table (array + linked list or tree in case of collisions).
+    Performance	O(log n) for put(), get(), remove() due to tree operations.	O(1) on average for put(), get(), remove(), but O(n) in worst case (high collisions).
+    Null keys	Does NOT allow a null key but allows multiple null values.	Allows one null key and multiple null values.
+    Comparison Mechanism	Uses Comparable or Comparator to maintain sorting order.	Uses equals() and hashCode() for key lookup.
+    Memory Usage	Higher due to tree structure overhead.	Lower since it uses simple hashing.
+    Best Use Case	When you need sorted key order and can tolerate O(log n) complexity.	When you need fast lookups and ordering does not matter.
+    When to Use?
+    Use TreeMap when you need sorted data (e.g., implementing a navigation system, range queries).
+    Use HashMap when you need fast key-based access without sorting concerns.
+    Would you like an example to illustrate these differences? 🚀
+
+    🔍 In Short:
+    Use ConcurrentHashMap in multi-threaded scenarios to avoid explicit synchronization and achieve better scalability.
+    Use HashMap when thread safety is not a concern.
+
+
+17. How does Java handle synchronization in collections?
+    Java handles synchronization in collections in several ways to ensure thread safety when multiple threads access or modify collections concurrently:
+
+    1. Legacy Synchronized Collections
+    Java provides synchronized versions of some collections in the java.util.Collections utility class.
+
+    Example methods:
+
+    Collections.synchronizedList(List<T> list)
+
+    Collections.synchronizedMap(Map<K, V> map)
+
+    Collections.synchronizedSet(Set<T> set)
+
+    These wrappers internally synchronize every method on the passed collection to prevent concurrent access issues.
+
+    2. Concurrent Collections (java.util.concurrent)
+    Java provides concurrent collection classes designed for high concurrency without needing explicit synchronization.
+
+    ConcurrentHashMap – thread-safe and lock-segmented map.
+
+    CopyOnWriteArrayList – thread-safe variant of ArrayList optimized for scenarios with more reads than writes.
+
+    ConcurrentLinkedQueue – a non-blocking, thread-safe queue.
+
+    3. Synchronized Blocks or Methods
+    For custom collections or specific logic, developers can manually synchronize blocks of code using synchronized keyword.
+
+    Summary:
+    For simple cases, use Collections.synchronizedXXX().
+
+    For high-concurrency scenarios, use java.util.concurrent package.
+
+    Manual synchronization is used when fine-grained control is required.
+
+
+18. What is the difference between fail-fast and fail-safe iterators?
+    Fail-Fast Iterator (Java)
+    Behavior:
+    If the collection is structurally modified (add, remove, etc.) after the iterator is created, outside of the iterator, it will throw a ConcurrentModificationException.
+    Mechanism:
+    Uses an internal counter like modCount to detect modifications.
+    Examples:
+    ArrayList
+    HashMap
+    HashSet
+    LinkedList
+    Thread Safety:
+
+    Fail-Safe Iterator (Java)
+    Behavior:
+    The iterator does not throw ConcurrentModificationException even if the collection is modified during iteration.
+    It works on a clone (copy) of the collection.
+    Mechanism:
+    Operates on a separate copy of the collection (snapshot).
+    Examples:
+    ConcurrentHashMap
+    CopyOnWriteArrayList
+    Thread Safety:
+    Thread-safe.
+
+    Key Difference Summary:
+    Feature	Fail-Fast Iterator	Fail-Safe Iterator
+    Throws ConcurrentModificationException	Yes	No
+    Works on	Original collection	Copy of the collection (snapshot)
+    Thread-safety	Not thread-safe	Thread-safe
+    Performance	Faster, low overhead	Slower due to creating copies
+
+
+19. What is a PriorityQueue, and how does it work?
+    PriorityQueue in Java
+    A PriorityQueue in Java is a data structure that is part of the Java Collections Framework and is implemented in the java.util package.
+    It is a special type of queue that follows the priority heap concept, meaning that elements are ordered based on their natural ordering (if they implement Comparable) or by a custom comparator.
+
+    How It Works
+    The head of the queue always contains the smallest element (min-heap by default).
+    The removal of elements follows priority order rather than the insertion order.
+    It is implemented using a binary heap (a complete binary tree).
+    The time complexity for insertion (offer()), deletion (poll()), and retrieval (peek()) is O(log n) because of heap operations.
+
+    Key Features
+    Not thread-safe: Use PriorityBlockingQueue for thread safety.
+    Does not allow null values.
+    Duplicates are allowed.
+    Ordering is based on natural ordering (Comparable) or a custom Comparator.
+    Not FIFO (First In, First Out): Elements are processed based on priority.
+
+
+20. What is the use of Comparator and Comparable interfaces?
+    Both Comparator and Comparable interfaces in Java are used to define custom sorting logic for objects, but they serve different purposes and have different implementations.
+
+    1. Comparable Interface (java.lang.Comparable)
+    It is used when an object needs to define its natural ordering (default sorting logic).
+
+    The class implements the Comparable<T> interface and overrides the compareTo(T o) method.
+
+    2. Comparator Interface (java.util.Comparator)
+    It is used when multiple sorting strategies are required.
+
+    We define separate classes (or use lambda expressions) to implement Comparator<T> and override compare(T o1, T o2).
+
+    It allows sorting based on different fields dynamically without modifying the class itself.
+
+    When to Use What?
+    Use Comparable when you have a single default sorting logic (e.g., sorting employees by ID).
+
+    Use Comparator when you need multiple sorting strategies (e.g., sorting employees by Name, Salary, Age).
+
+
+21. Multithreading and Concurrency
+    1. What is Multithreading?
+    Multithreading is a programming technique where multiple threads execute concurrently, sharing the same process resources. A thread is the smallest unit of execution in a program.
+
+    Key Benefits of Multithreading:
+    ✅ Improved Performance – Utilizes CPU cores efficiently.
+    ✅ Concurrency – Runs multiple tasks in parallel.
+    ✅ Resource Sharing – Multiple threads share memory and resources.
+    ✅ Responsiveness – Keeps applications responsive (e.g., GUI apps).
+
+    2. What is Concurrency?
+    Concurrency is the ability to run multiple tasks logically in parallel. It doesn’t necessarily mean tasks run simultaneously; instead, they overlap in execution (time-sliced).
+
+    Concurrency vs. Parallelism
+    Feature	Concurrency	Parallelism
+    Definition	Tasks appear to run simultaneously	Tasks actually run simultaneously
+    Execution	Time-sliced (switches tasks)	Uses multiple CPU cores
+    Example	Multitasking on a single-core CPU	Running tasks on multiple cores
+
+
+22. What is the difference between Thread and Runnable?
+    | **Aspect**             | **Thread**                                                              | **Runnable**                                                           |
+    |------------------------|-------------------------------------------------------------------------|------------------------------------------------------------------------|
+    | **Type**               | Class (`java.lang.Thread`)                                              | Interface (`java.lang.Runnable`)                                       |
+    | **Inheritance**        | Can't extend another class (single inheritance limitation)              | Can implement alongside extending another class                        |
+    | **Usage**              | Extend `Thread` and override `run()` method                             | Implement `Runnable` and pass to a `Thread`                            |
+    | **Code Example**       | `class MyThread extends Thread { public void run() { ... } }`           | `class MyRunnable implements Runnable { public void run() { ... } }`   |
+    | **Thread Creation**    | `MyThread t = new MyThread(); t.start();`                               | `Thread t = new Thread(new MyRunnable()); t.start();`                  |
+    | **Reusability**        | Less reusable (task tightly bound to thread)                            | More reusable (task separated from thread)                             |
+    | **Resource Sharing**   | Not ideal for shared resources                                          | Better for shared resource handling                                    |
+    | **Best Use Case**      | Simple or quick custom thread behavior                                  | Scalable and flexible multi-threading                                  |
+    | **Performance**        | Slightly heavier                                                        | Lightweight and better performance for many threads                    |
+
+
+23. Explain thread lifecycle in Java.
+    In Java, a thread goes through several stages from creation to termination. These stages form the Thread Lifecycle, which consists of five main states:
+
+    New (Created)
+        When a thread object is created but not yet started.
+        It remains in this state until the start() method is called.
+        Thread t1 = new Thread(() -> System.out.println("Thread Running"));
+
+    Runnable
+        After calling start(), the thread enters the Runnable state.
+        It is ready to run but is waiting for the CPU scheduler to allocate processor time.
+        t1.start();  // Now the thread is in the Runnable state
+
+    Blocked / Waiting / Timed Waiting
+        A) Blocked State
+        Occurs when a thread is trying to access a synchronized resource that is locked by another thread.
+        synchronized(object) {
+            // Thread enters Blocked state if another thread holds the lock
+        }
+        B) Waiting State
+        A thread waits indefinitely until another thread notifies it using notify() or notifyAll().
+        synchronized(object) {
+            object.wait();  // Thread enters Waiting state
+        }
+        C) Timed Waiting State
+        A thread waits for a specified time using methods like sleep(), wait(time), or join(time).
+        Thread.sleep(1000);  // Thread enters Timed Waiting state for 1 second
+
+    Running
+        When the thread scheduler picks the thread from the Runnable state, it enters the Running state.
+        It is now executing its run() method.
+        class MyThread extends Thread {
+            public void run() {
+                System.out.println("Thread is running...");
+            }
+        }
+
+    Terminated (Dead)
+        A thread enters the Terminated state when it completes execution or is stopped using stop() (deprecated).
+        Once terminated, it cannot be restarted.
+        t1.join();  // Thread completes execution and moves to Terminated state
+
+    Thread Lifecycle Diagram
+        New --> Runnable --> Running --> Terminated
+                 |               |
+                \|/             \|/
+             Blocked     Waiting / Timed Waiting
+
+    Key Points
+    start() moves a thread from New → Runnable.
+    Thread Scheduler moves a thread from Runnable → Running.
+    sleep() / wait() moves a thread to Timed Waiting / Waiting.
+    notify() / notifyAll() moves a thread from Waiting → Runnable.
+    **When execution is done, the thread moves to the Terminated state.
+
+
+24. What is the difference between synchronized block and synchronized method?
+    🔒 1. Synchronized Method
+    Declared with the synchronized keyword in the method signature.
+    Locks the entire method.
+    The lock is on the object (this) for instance methods, or on the Class object for static methods.
+    🔹 Pros:
+    Simple and clear.
+    🔸 Cons:
+    Less flexible: synchronizes the whole method, even if only a part needs to be synchronized.
+
+    🔐 2. Synchronized Block
+    Synchronization is applied to a specific block of code inside a method.
+    Allows locking on a specific object, not necessarily this.
+    🔹 Pros:
+    More flexible and efficient: only critical section is locked.
+    Reduces the time a thread holds the lock, improving concurrency.
+    🔸 Cons:
+    Slightly more complex to implement and manage.
+
+
+25. What is a deadlock? How can it be avoided?
+    A deadlock is a situation in multithreaded programming where two or more threads are blocked forever, each waiting for the other to release a resource.
+    🔁 Example Scenario:
+    Thread A holds Lock 1 and waits for Lock 2.
+    Thread B holds Lock 2 and waits for Lock 1.
+    Neither can proceed, resulting in a deadlock.
+
+    🛡️ How to Avoid Deadlock?
+    1. Lock Ordering
+    Always acquire locks in a specific global order. If every thread acquires locks in the same order, deadlocks can be avoided.
+    2. Try-and-Timeout / tryLock()
+    Use ReentrantLock with tryLock() and timeout.
+    3. Avoid Nested Locks
+    Minimize using multiple synchronized blocks that lock on different objects.
+    4. Deadlock Detection Tools
+    Use thread dumps (jstack) or profilers like VisualVM, JConsole, or IntelliJ's debugger to detect deadlocks.
+
+
+26. What is the volatile keyword in Java?
+27. What are Executor and ExecutorService?
+28. What are Callable and Future in Java?
+29. What is the difference between wait() and sleep()?
+30. What is the role of ReentrantLock in Java?
+31. Explain the concept of thread safety in Java. How is it achieved?
+32. JVM and Performance
+33. Explain the JVM architecture.
+34. What is the difference between heap and stack memory in Java?
+35. What are Garbage Collection (GC) types in Java?
+36. How does garbage collection work in Java?
+37. What is a ClassLoader? How does it work?
+38. What are memory leaks in Java? How do you avoid them?
+39. What are Soft, Weak, and Phantom references in Java?
+40. What is Just-In-Time (JIT) compilation?
+41. What are common JVM tuning parameters?
+42. How do you optimize the performance of a Java application?
+43. Java 8 and Beyond
+44. What are the main features introduced in Java 8?
+45. What is a functional interface? Give examples.
+46. Explain the concept of Streams in Java.
+47. What is the difference between map() and flatMap() in Streams?
+48. What are Optional classes in Java?
+49. What are default and static methods in interfaces?
+50. What are method references in Java?
+51. What are Lambda Expressions, and how are they used?
+52. Explain the Collectors utility in Streams.
+53. What is the difference between forEach() and peek() in Streams?
+54. Advanced Java Topics
+55. What are design patterns in Java? Provide examples of Singleton, Factory, and Observer.
+56. Explain the concept of dependency injection (DI) in Java.
+57. What are microservices, and how is Java used to build them?
+58. What is a servlet in Java? How does it work?
+59. Explain the lifecycle of a servlet.
+60. What is the difference between SOAP and REST APIs?
+61. What is Hibernate, and how does it work?
+62. What is Spring Framework? What are its main modules?
+63. What is a Java Reflection API, and how is it used?
+64. How do you implement secure communication in Java using SSL?
+65. Common Scenario-Based Questions
+66. How would you create a thread-safe Singleton in Java?
+67. Explain how to handle a large file with Java efficiently.
+68. How would you implement a producer-consumer problem in Java?
+69. How do you detect and resolve memory leaks in a Java application?
+70. How would you handle a high-traffic web application using Java?
