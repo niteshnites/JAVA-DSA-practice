@@ -653,6 +653,27 @@ Core Java Questions
 
 
 26. What is the volatile keyword in Java?
+    The volatile keyword in Java is used to mark a variable so that every read and write to that variable happens directly from and to the main memory.
+    Normally, Java threads keep local copies of variables (in CPU caches or registers) for performance reasons. This can cause problems when multiple threads are reading/writing the same variable — they might not see the latest value.
+
+    When a variable is declared volatile, it guarantees:
+    Visibility: Changes made by one thread to the variable are immediately visible to other threads.
+    No caching: Threads must always read the latest value from main memory.
+    No atomicity: It does not guarantee atomic operations like increment (count++), just visibility.
+
+    Example:
+        private volatile boolean isRunning = true;
+        public void stopRunning() {
+            isRunning = false;
+        }
+        public void run() {
+            while (isRunning) {
+                // do work
+            }
+        }
+        Here, without volatile, the run() method might never notice that isRunning was changed by another thread.
+
+
 27. What are Executor and ExecutorService?
 28. What are Callable and Future in Java?
 29. What is the difference between wait() and sleep()?
