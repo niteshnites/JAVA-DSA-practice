@@ -675,6 +675,37 @@ Core Java Questions
 
 
 27. What are Executor and ExecutorService?
+    Executor is a simple interface that represents an object which executes submitted Runnable tasks.
+    Instead of creating and starting threads manually, you submit tasks to an Executor.
+
+    ExecutorService is a sub-interface of Executor that adds more powerful features, like:
+    Managing a pool of threads
+    Submitting Runnable and Callable tasks
+    Getting Future results
+    Shutting down the service properly
+
+       Executor executor = Executors.newSingleThreadExecutor();
+       executor.execute(() -> System.out.println("Task executed"));
+
+       ExecutorService service = Executors.newFixedThreadPool(2);
+       service.submit(() -> System.out.println("Task executed"));
+       service.shutdown();
+
+    Differences:
+    Feature                   | Executor                           | ExecutorService
+    ------------------------- | ---------------------------------- | ---------------------------------------
+    Basic Responsibility      | Executes submitted Runnable tasks  | Executes and manages tasks
+    Return Type on Submission | void                               | Future<?> (optional)
+    Task Type                 | Only Runnable                      | Runnable and Callable
+    Shutdown Control          | No shutdown mechanism              | Can gracefully shutdown (shutdown(), shutdownNow())
+    Thread Management         | No built-in thread pool            | Built-in thread pool management
+    Submit Multiple Tasks     | Limited                            | Can handle batches of tasks (invokeAll(), invokeAny())
+
+
+    ✅ Executor = just executes
+    ✅ ExecutorService = executes + manages tasks lifecycle
+
+
 28. What are Callable and Future in Java?
 29. What is the difference between wait() and sleep()?
 30. What is the role of ReentrantLock in Java?
