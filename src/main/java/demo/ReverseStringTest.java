@@ -1,8 +1,7 @@
 package demo;
 
-import java.util.Scanner;
 
-public class ReverseString {
+public class ReverseStringTest {
     public static void main (String[] args){
 
         // Reverse of a String
