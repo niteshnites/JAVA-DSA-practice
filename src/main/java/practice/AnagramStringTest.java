@@ -15,9 +15,9 @@ public class AnagramStringTest {
 
         boolean isAnagramString = Arrays.equals(charArr1, charArr2);
 
-        if(isAnagramString){
+        if (isAnagramString) {
             System.out.println("Anagram String");
-        }else {
+        } else {
             System.out.println("Not Anagram");
         }
 
