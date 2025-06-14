@@ -8,9 +8,9 @@ public class FibonacciSeriesProgramTest {
 
         for (int i = 0; i < 10; i++) {
             System.out.print(first + " ");
-            int sum = first + second;
-            first = second;
-            second = sum;
+            int sum = first + second; // 1 // 2 // 3
+            first = second; // 1 // 1 // 2
+            second = sum; // 1 // 2 // 3
         }
     }
 }

@@ -1,5 +1,7 @@
 package practice;
 
+import java.util.Arrays;
+
 public class LargestNumberInArrayTest {
     public static void main(String[] args) {
 
@@ -17,5 +19,8 @@ public class LargestNumberInArrayTest {
         }
         System.out.println("largest: " + largest);
         System.out.println("second largest: " + secondLargest);
+
+        System.out.println(Arrays.stream(numbers).max().getAsInt());
+        System.out.println(Arrays.stream(numbers).filter(n -> n < Arrays.stream(numbers).max().getAsInt()).max().getAsInt());
     }
 }
