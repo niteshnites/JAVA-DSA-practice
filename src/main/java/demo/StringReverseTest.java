@@ -1,6 +1,6 @@
 package demo;
 
-public class StringTest {
+public class StringReverseTest {
     public static void main(String[] args) {
 
         String name = "India";
