@@ -691,6 +691,36 @@ Core Java Questions
 
 
 28. What are Callable and Future in Java?
+    In Java, Callable and Future are part of the java.util.concurrent package and are used for concurrent programming, allowing tasks to run asynchronously and return results.
+
+    ✅ Callable Interface
+    Similar to Runnable, but can return a result and throw checked exceptions.
+    Declared as:
+        public interface Callable<V> {
+            V call() throws Exception;
+        }
+
+    ✅ Future Interface
+    Represents the result of an asynchronous computation.
+    Used to retrieve the result of a Callable or check if it's complete.
+    Obtained when you submit a Callable to an ExecutorService.
+
+    Key Methods:
+    get() – Waits for the task to complete and returns the result.
+    isDone() – Checks if the task is finished.
+    cancel() – Cancels the task if possible.
+    isCancelled() – Checks if the task was cancelled.
+
+    Example:
+    ExecutorService executor = Executors.newSingleThreadExecutor();
+    Future<Integer> future = executor.submit(() -> {
+        Thread.sleep(1000);
+        return 123;
+    });
+    System.out.println(future.get());  // Waits and prints 123
+    executor.shutdown();
+
+
 29. What is the difference between wait() and sleep()?
 30. What is the role of ReentrantLock in Java?
 31. Explain the concept of thread safety in Java. How is it achieved?
