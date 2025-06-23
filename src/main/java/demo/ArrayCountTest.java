@@ -15,5 +15,9 @@ public class ArrayCountTest {
 
         frequencyMap.forEach((k, v) -> System.out.println(k + " -> " + v));
 
+        for(Map.Entry<Integer, Integer> entry : frequencyMap.entrySet()) {
+            System.out.println(entry.getKey() + " -----> " + entry.getValue());
+        }
+
     }
 }

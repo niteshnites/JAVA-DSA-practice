@@ -5,6 +5,8 @@ public class PalindromeString {
 
         // Anagram String
         String str = "madam";
+        StringBuilder sb = new StringBuilder(str);
+        String rev = sb.reverse().toString();
         String reverse = "";
         for (int i = str.length()-1; i >= 0 ; i--) {
             reverse += str.charAt(i);
@@ -28,6 +30,8 @@ public class PalindromeString {
         }
 
         System.out.println(isPalindrome ? "PALINDROME" : "NOT PALINDROME");
+
+        System.out.println(str.equals(rev));
 
     }
 }
