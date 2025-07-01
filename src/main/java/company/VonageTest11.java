@@ -1,10 +1,11 @@
+package company;
 
 import org.testng.annotations.Test;
 
 import java.util.HashMap;
 import java.util.Map;
 
-public class VonageTest2 {
+public class VonageTest11 {
 
     @Test
     public void mainMethod() {
