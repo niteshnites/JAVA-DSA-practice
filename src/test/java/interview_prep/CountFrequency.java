@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-public class CountCharacterFrequency {
+public class CountFrequency {
     public static void main(String[] args) {
 
         String str = "I love programming I love programming";
